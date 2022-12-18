@@ -35,20 +35,22 @@ _XXX TODO_
 
 ## Creating Your Own Graphs
 
-Graphs are described in DOT format. A very simple GPT feedback graph could be defined like so:
+Graphs are described as Liquid templates of a DOT format graph. A very simple GPT feedback graph could be defined like so:
 
 ```dot
-ying_prompt "Your last thought was #{input}. You breathe in and think: "
-yang_prompt "Your last thought was #{input}. You breathe out and think: "
+{% assign ying_prompt="Your last thought was #{input}. You breathe in and think: " %}
+{% assign yang_prompt="Your last thought was #{input}. You breathe out and think: " %}
 
 digraph Daoism{
-  Ying [module=GPTModule, prompt=ying_prompt]
-  Ying [module=GPTModule, prompt=yang_prompt]
+  Ying [module=GPTModule, prompt="{{ying_prompt}}"]
+  Ying [module=GPTModule, prompt="{{yang_prompt}}"]
 
   Ying -> Yang
   Yang -> Ying
 }
 ```
+
+Place your graphs in `./priv/graphs`.
 
 ## Creating Your Own Modules
 
@@ -78,7 +80,7 @@ end
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`
- - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`.
+ - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `Await` module.
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
 

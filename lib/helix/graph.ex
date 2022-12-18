@@ -1,20 +1,15 @@
 defmodule Helix.Graph do
 
   require Dotx
+  require Solid
 
   def load_graph() do
 
-    dot_string = """
-digraph Dev {
-  Ying [module=PassthroughModule]
-  Yang [module=GPTModule]
-  Print [module=GPTModule]
+    path = :code.priv_dir(:helix) |> Path.join("graphs") |> Path.join("ying_yang.dot.liquid")
+    contents = File.read!(path)
 
-  Ying -> Yang [style=dashed, color=grey]
-  Yang -> Ying [color="black:invis:black"]
-  Yang -> Print
-}
-"""
+    {:ok, template} = Solid.parse(contents)
+    dot_string = Solid.render!(template, %{}) |> to_string
 
     decoded_graph = Dotx.decode!(dot_string)
     {nodes, graph} = Dotx.to_nodes(decoded_graph)
@@ -35,11 +30,13 @@ digraph Dev {
   def instantiate_nodes(nodes) do
 
     for {id, node} <- nodes do
+
       module = get_module_for_name(node.attrs["module"])
 
-      initial_state = %{
-        targets: get_targets_for_node(node)
-      }
+      initial_state = Map.drop(node.attrs, ["edges_from", "graph"])
+        |> Map.new(fn {k, v} -> {String.to_existing_atom(k), v} end)
+        |> Map.put(:targets, get_targets_for_node(node))
+
       {:ok, pid} = GenServer.start_link(module, initial_state)
 
       IO.inspect(Enum.at(id, 0) <> ": " <> inspect(pid))
