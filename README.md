@@ -39,8 +39,8 @@ Graphs are described a in DOT format. A very simple GPT feedback graph could be 
 
 ```dot
 digraph Daoism{
-  Ying [module=GPTModule, prompt=Breathe in."]
-  Ying [module=GPTModule, prompt=Breathe out.]
+  Ying [module=GPTModule, prompt="Breathe in."]
+  Ying [module=GPTModule, prompt="Breathe out."]
 
   Ying -> Yang
   Yang -> Ying
