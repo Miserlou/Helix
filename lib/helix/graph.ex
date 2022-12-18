@@ -1,15 +1,14 @@
 defmodule Helix.Graph do
 
   require Dotx
-  require OpenAI
 
   def load_graph() do
 
     dot_string = """
-digraph D {
+digraph Dev {
   Ying [module=PassthroughModule]
-  Yang [module=PassthroughModule]
-  Print [module=PassthroughModule]
+  Yang [module=GPTModule]
+  Print [module=GPTModule]
 
   Ying -> Yang [style=dashed, color=grey]
   Yang -> Ying [color="black:invis:black"]
@@ -19,13 +18,6 @@ digraph D {
 
     decoded_graph = Dotx.decode!(dot_string)
     {nodes, graph} = Dotx.to_nodes(decoded_graph)
-
-    # res = OpenAI.completions(
-    #   "text-davinci-003",
-    #   prompt: "Mirror mirror, who is the fairest of them all?",
-    #   max_tokens: 200,
-    #   temperature: 0.8
-    # )
 
     instantiate_nodes(nodes)
 
