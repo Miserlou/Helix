@@ -14,17 +14,17 @@ defmodule Helix.Graph do
     decoded_graph = Dotx.decode!(dot_string)
     {nodes, graph} = Dotx.to_nodes(decoded_graph)
 
-    instantiate_nodes(nodes)
+    # instantiate_nodes(nodes)
 
-    ## Start it off
-    ying_pid = :ets.lookup(:pids, "Ying") |> Enum.at(0) |> elem(1)
-    event = %{
-      type: :text,
-      value: "Hello"
-    }
-    GenServer.cast(ying_pid, {:convey, event})
+    # ## Start it off
+    # ying_pid = :ets.lookup(:pids, "Ying") |> Enum.at(0) |> elem(1)
+    # event = %{
+    #   type: :text,
+    #   value: "Hello"
+    # }
+    # GenServer.cast(ying_pid, {:convey, event})
 
-    graph
+    # graph
   end
 
   def instantiate_nodes(nodes) do
