@@ -1,11 +1,15 @@
 # Helix
-Engineering Consciousness
+## A Playground for Engineering Consciousness
+
+Helix is a framework for engineering consciousness using networks of AI task modules. Think of it like a modular synthesizer for AI.
+
+Read more about the concept [in this blog post]().
 
 ## Installation and Basic Usage
 
 **Before you begin, be aware that Helix, left unattended, can eat through OpenAI credits as fast as it can!**
 
-_These instructions assume you have Elixir installed._
+_These instructions assume you have [Elixir installed](https://elixir-lang.org/install.html)._
 
 First, clone this repository and `cd` into it.
 
@@ -69,11 +73,13 @@ end
 
  - Create modified Heex/DOT template format
  - Web Interface
-    - Image representations 
+    - Image representations
+    - Choose Graph from folder, instantiate 
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`
- - More modules: `ImageInputModule`, `StableDiffusionModule`, `ImageOutputModule`
+ - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`.
+ - Refactor modules names.. don't need Module
  - Create GitHub pages blog
 
 ## Ideas to explore
