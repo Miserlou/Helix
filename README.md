@@ -68,9 +68,11 @@ end
 ## Dev TODO
  - Create modified Heex/DOT template format
  - Web Interface
+    - Image representations 
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
- - More modules: `MixModule`, `ClockModule`, `OutputModule`, `InputModule`
+ - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`
+ - More modules: `ImageInputModule`, `StableDiffusionModule`, `ImageOutputModule`
 
 ## Ideas to explore
 
