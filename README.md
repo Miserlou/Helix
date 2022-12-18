@@ -58,7 +58,7 @@ defmodule Helix.Modules.PassthroughModule do
   use Helix.Modules.Module
 
   def handle_cast({:convey, event}, state) do
-    convey_to_targets(event, state.targets)
+    convey(event, state.targets)
     {:noreply, state}
   end
 
