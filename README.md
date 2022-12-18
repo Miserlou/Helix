@@ -66,6 +66,7 @@ end
 ```
 
 ## Dev TODO
+
  - Create modified Heex/DOT template format
  - Web Interface
     - Image representations 
@@ -73,6 +74,7 @@ end
  - Use DynamicSupervisor
  - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`
  - More modules: `ImageInputModule`, `StableDiffusionModule`, `ImageOutputModule`
+ - Create GitHub pages blog
 
 ## Ideas to explore
 
