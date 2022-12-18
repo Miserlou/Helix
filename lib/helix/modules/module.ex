@@ -25,7 +25,7 @@ defmodule Helix.Modules.Module do
       #   {:noreply, state}
       # end
 
-      def convey_to_targets(value, targets) do
+      def convey(value, targets) do
         for target <- targets do
           event = %{
             type: :text,

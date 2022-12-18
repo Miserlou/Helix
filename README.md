@@ -48,7 +48,7 @@ digraph Daoism{
 
 ## Creating Your Own Modules
 
-Creating a module is very simple. All a module must do is implement `handle_cast({:convey, event}, state)` to receive inputs from other modules, and at the end of that function call `convey_to_targets(output_value, targets)` to pass a message along.
+Creating a module is very simple. All a module must do is implement `handle_cast({:convey, event}, state)` to receive inputs from other modules, and at the end of that function call `convey(output_value, targets)` to pass a message along.
 
 So, the simplest passthrough module will be:
 
