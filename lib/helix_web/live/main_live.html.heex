@@ -1,1 +1,33 @@
-Hello.
+<div
+  class="w-full h-screen p-8"
+  style="background-image: url('https://i.imgur.com/cNEOHI9.png'); background-repeat: repeat; "
+>
+
+<div class="mx-auto max-w-3xl rounded-xl bg-white h-full border-2 shadow-2xl p-4 border-gray-800">
+
+<%= if !@started do %>
+
+  <div class="mt-12">
+
+    <form phx-change="select_graph">
+      <label class="text-lg font-bold" for="graph">Choose a graph:</label><br />
+      <select class="rounded-xl" name="graph" id="graphs" >
+        <%= for graph <- @graphs do %>
+          <option value={graph} ><%= Path.split(graph) |> List.last() %></option>
+        <% end %>
+      </select>
+      <br><br>
+    </form>
+
+    <button class="bg-blue-500 w-36 p-2 text-white rounded-md" phx-click="load_graph">Load Graph</button>
+
+  </div>
+
+<% else %>
+
+Started!
+
+<% end %>
+
+</div>
+</div>

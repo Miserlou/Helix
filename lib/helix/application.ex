@@ -23,9 +23,8 @@ defmodule Helix.Application do
       # {Helix.Worker, arg}
     ]
 
-    # Create
+    # PID table, may deprecate this later..
     :ets.new(:pids, [:named_table, :public])
-    Graph.load_graph()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

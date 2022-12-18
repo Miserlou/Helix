@@ -62,7 +62,10 @@ defmodule Helix.MixProject do
       {:openai, "~> 0.2.0"},
       #{:libgraph, "~> 0.7"},
       {:dotx, "~> 0.3.1"},
-      {:solid, "~> 0.14"}
+      {:solid, "~> 0.14"},
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+
+
     ]
   end
 
