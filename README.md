@@ -35,7 +35,19 @@ _XXX TODO_
 
 ## Creating Your Own Graphs
 
-Graphs are described as Liquid templates of a DOT format graph. A very simple GPT feedback graph could be defined like so:
+Graphs are described a in DOT format. A very simple GPT feedback graph could be defined like so:
+
+```dot
+digraph Daoism{
+  Ying [module=GPTModule, prompt=Breathe in."]
+  Ying [module=GPTModule, prompt=Breathe out.]
+
+  Ying -> Yang
+  Yang -> Ying
+}
+```
+
+However, DOT is quite limited by itself, so Graph files are actually Liquid templates used to create a DOT file. This makes it much easier to use variable assigns and loops, like so:
 
 ```dot
 {% assign ying_prompt="Your last thought was #{input}. You breathe in and think: " %}
