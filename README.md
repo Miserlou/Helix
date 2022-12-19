@@ -3,13 +3,17 @@
 
 **Helix** is a framework for engineering consciousness using networks of AI task modules. Think of it like a **modular synthesizer for AI**. Read more about the concept [in this blog post]().
 
+In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
+
+You interact with Helix by using and writing **Task Modules**, which use a single AI capability, and creating **Graphs**, which describes a network of those modules and their inputs and outputs.
+
 Though the project has lofty goals, Helix as framework may be practical for all sorts of uses, such as:
 
- * Building feedback-driven, self-training and adversarial AI systems
- * Making human-in-the-loop and human-out-of-the-loop AI networks
- * Giving new capabilities (internet access, UNIX shells, robot controls) to AI systems
- * Experiments in multi-modal AI networks
- * Unsupervised knowledge creation
+ * Building **feedback-driven**, **self-training** and **internally-adversarial** AI systems
+ * Making **human-in-the-loop** and **human-out-of-the-loop** AI networks
+ * Giving **real-world capabilities** (internet access, UNIX shells, robot controls) to AI systems
+ * Experimenting in **multi-modal AI** networks
+ * **Unsupervised knowledge creation**
 
 ## Installation and Basic Usage
 
@@ -95,7 +99,7 @@ end
  - ~~Web Interface~~
     - Image representations
     - LiveInput
-    - ~~Choose Graph from folder, instantiate ~~
+    - ~~Choose Graph from folder, instantiate~~
  - ~~GPTModule templating syntax~~
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
