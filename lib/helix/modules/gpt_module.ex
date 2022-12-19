@@ -4,10 +4,10 @@ defmodule Helix.Modules.GPTModule do
 
   def handle_cast({:convey, event}, state) do
     {:ok, res} = OpenAI.completions(
-      "text-davinci-003",
+      Map.get(state, :model, "text-davinci-003"),
       prompt: "You are a homunculous. Respond with a thought. Your input is:" <> event.value,
-      max_tokens: 200,
-      temperature: 0.8
+      max_tokens: String.to_integer(Map.get(state, :max_tokens, "200")),
+      temperature: String.to_float(Map.get(state, :temperature, "0.8"))
     )
 
     value = extract_result(res)

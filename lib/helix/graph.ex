@@ -47,7 +47,6 @@ defmodule Helix.Graph do
       {:ok, pid} = GenServer.start_link(module, initial_state)
       # {:ok, pid} = GenServer.start(module, initial_state)
 
-      IO.inspect(Enum.at(id, 0) <> ": " <> inspect(pid))
       :ets.insert(:pids, {Enum.at(id, 0), pid})
     end
   end

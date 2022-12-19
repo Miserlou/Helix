@@ -10,7 +10,6 @@ defmodule HelixWeb.MainLive do
 
     if connected?(socket) do
       HelixWeb.Endpoint.subscribe("LiveModule")
-      # PubSub.subscribe(Helix.PubSub, "LiveModule")
     end
 
     {:ok, assign(socket,
