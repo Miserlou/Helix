@@ -1,0 +1,18 @@
+{% assign observer_prompt="" %}
+{% assign critic_prompt="" %}
+{% assign decider_prompt="" %}
+
+digraph ConsciousnessAlpha{
+  Stimulus [module="LiveInput"]
+  Observer [module=GPTModule, prompt="{{ying_prompt}}"]
+  Critic [module=GPTModule, prompt="{{yang_prompt}}"]
+  Decider [module=GPTModule]
+  Output [module=LiveOutputModule]
+
+  Stimulus -> Observer
+  Observer -> Critic
+  Observer -> Decider
+  Critic -> Observer
+  Critic -> Decider
+  Decider -> Output
+}
