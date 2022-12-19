@@ -7,13 +7,12 @@ defmodule Helix.Modules.StartModule do
     {:ok, state}
   end
 
-  @impl true
   def handle_info(:start, state) do
     convey(state.message, state)
     {:noreply, state}
   end
 
-  def handle_cast({:convey, event}, state) do
+  def handle_cast({:convey, _event}, state) do
     {:noreply, state}
   end
 
