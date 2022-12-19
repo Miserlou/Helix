@@ -50,8 +50,8 @@ digraph Daoism{
 However, DOT is quite limited by itself, so Graph files are actually Liquid templates used to create a DOT file. This makes it much easier to use variable assigns and loops, like so:
 
 ```dot
-{% assign ying_prompt="Your last thought was #{input}. You breathe in and think: " %}
-{% assign yang_prompt="Your last thought was #{input}. You breathe out and think: " %}
+{% assign ying_prompt="Your last thought was '{Yang}'. You breathe in and think: " %}
+{% assign yang_prompt="Your last thought was '{Ying}'. You breathe out and think: " %}
 
 digraph Daoism{
   Ying [module=GPTModule, prompt="{{ying_prompt}}"]
@@ -89,7 +89,7 @@ end
  - ~~Web Interface~~
     - Image representations
     - ~~Choose Graph from folder, instantiate ~~
- - GPT 
+ - ~~GPTModule templating syntax~~
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`

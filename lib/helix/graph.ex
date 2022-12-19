@@ -43,6 +43,8 @@ defmodule Helix.Graph do
         |> Map.new(fn {k, v} -> {String.to_existing_atom(k), v} end)
         |> Map.put(:id, node.id |> Enum.at(0))
         |> Map.put(:targets, get_targets_for_node(node))
+        |> Map.put(:input_history, %{})
+        |> Map.put(:output_history, [])
 
       {:ok, pid} = GenServer.start_link(module, initial_state)
       # {:ok, pid} = GenServer.start(module, initial_state)

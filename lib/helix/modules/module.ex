@@ -48,6 +48,13 @@ defmodule Helix.Modules.Module do
         pid
       end
 
+      def update_input_history(state, event) do
+        input_history_for_source = Map.get(state.input_history, event.source_id, [])
+        updated_input_history_for_source = input_history_for_source ++ [event]
+        updated_input_history = Map.put(state.input_history, event.source_id, updated_input_history_for_source)
+        %{state | input_history: updated_input_history}
+      end
+
       defoverridable [init: 1]
 
     end
