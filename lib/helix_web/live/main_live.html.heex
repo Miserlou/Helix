@@ -1,7 +1,7 @@
 <div
   class="w-full h-screen bg-base-300"
 >
-  <div class="mx-auto max-w-3xl bg-base-100 h-full shadow-2xl px-12 border-gray-800">
+  <div class="mx-auto max-w-3xl bg-base-100 h-full shadow-2xl px-4 md:px-12 border-gray-800">
 
   <%= if !@started do %>
 
@@ -14,7 +14,7 @@
           </label>
           <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="graph" id="graphs" >
             <%= for graph <- @graphs do %>
-              <option value={graph} ><%= Path.split(graph) |> List.last() %></option>
+              <option value={graph} ><%= Path.split(graph) |> List.last() |> String.replace(".dot.liquid", "") %></option>
             <% end %>
           </select>
         </div>
