@@ -1,33 +1,47 @@
 <div
-  class="w-full h-screen p-8"
-  style="background-image: url('https://i.imgur.com/cNEOHI9.png'); background-repeat: repeat; "
+  class="w-full h-screen bg-base-300"
 >
+  <div class="mx-auto max-w-3xl bg-base-100 h-full shadow-2xl px-12 border-gray-800">
 
-<div class="mx-auto max-w-3xl rounded-xl bg-white h-full border-2 shadow-2xl p-4 border-gray-800">
+  <%= if !@started do %>
 
-<%= if !@started do %>
+    <div class="flex flex-col">
 
-  <div class="mt-12">
+      <form phx-change="select_graph" class="pt-24">
+        <div class="mb-6">
+          <label class="label block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="graph">
+            <span class="label-text">Choose a graph:</span>
+          </label>
+          <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="graph" id="graphs" >
+            <%= for graph <- @graphs do %>
+              <option value={graph} ><%= Path.split(graph) |> List.last() %></option>
+            <% end %>
+          </select>
+        </div>
+      </form>
 
-    <form phx-change="select_graph">
-      <label class="text-lg font-bold" for="graph">Choose a graph:</label><br />
-      <select class="rounded-xl" name="graph" id="graphs" >
-        <%= for graph <- @graphs do %>
-          <option value={graph} ><%= Path.split(graph) |> List.last() %></option>
-        <% end %>
-      </select>
-      <br><br>
-    </form>
+      <div class="mb-6">
+        <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" phx-click="load_graph">Run Graph</button>
+      </div>
 
-    <button class="bg-blue-500 w-36 p-2 text-white rounded-md" phx-click="load_graph">Load Graph</button>
+        <div class="">
+          <label class="label block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <span class="label-text">Preview:</span>
+          </label>
+        </div>
+
+        <div class="mb-6 overflow-x text-xs bg-base-200 rounded-md">
+          <pre class="code w-full p-2 overflow-x-scroll "><%= @graph_preview %>
+          </pre>
+        </div>
+
+    </div>
+
+  <% else %>
+
+  Started!
+
+  <% end %>
 
   </div>
-
-<% else %>
-
-Started!
-
-<% end %>
-
-</div>
 </div>

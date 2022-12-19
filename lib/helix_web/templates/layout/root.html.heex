@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4ReAP+EAACtWgAA0TEAAP88AAD/y5QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFUzIiAAAAAAUzIgAAAAAAAzIhAAAAAAAzIgQRAAAAADImRFEAAAAAIiJlVQAAAAAAImZQAAAAAARFJmAAAAAABEVSJgAAAABEEQImYAAAAEVREiIgAAAABVURAAAAAAAzVVEQAAAAAzZlVREAAAADImZVUQAAAAACJgVVUADwDwAA+D8AAPg/AADwjwAA8A8AAPAPAAD8HwAA+B8AAPgPAADwhwAA8AcAAPg/AADwHwAA4A8AAOAPAAD4hwAA" />
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "Helix", suffix: " · Helix" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>

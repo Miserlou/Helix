@@ -1,0 +1,12 @@
+{% assign ying_prompt="Your last thought was {input}. You breathe in and think: " %}
+{% assign yang_prompt="Your last thought was {input}. You breathe out and think: " %}
+
+digraph Daoism{
+  Ying [module=GPTModule, prompt="{{ying_prompt}}"]
+  Yang [module=GPTModule, prompt="{{yang_prompt}}"]
+  Print [module=PrintModule]
+
+  Ying -> Yang
+  Yang -> Ying
+  Yang -> Print
+}
