@@ -88,6 +88,7 @@ end
  - ~~Create modified Heex/DOT template format~~
  - ~~Web Interface~~
     - Image representations
+    - LiveInput
     - ~~Choose Graph from folder, instantiate ~~
  - ~~GPTModule templating syntax~~
  - Logging, Saving and Restoring
