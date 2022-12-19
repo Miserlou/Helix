@@ -85,14 +85,15 @@ end
 
 ## Dev TODO
 
- X Create modified Heex/DOT template format
- - Web Interface
+ - ~~Create modified Heex/DOT template format~~
+ - ~~Web Interface~~
     - Image representations
-    X Choose Graph from folder, instantiate 
+    - ~~Choose Graph from folder, instantiate ~~
+ - GPT 
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`
- - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `Await` module.
+ - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `Await`, `GPTDecisionModule` module.
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
 
