@@ -1,9 +1,15 @@
 # Helix
 ## A Playground for Engineering Consciousness
 
-Helix is a framework for engineering consciousness using networks of AI task modules. Think of it like a modular synthesizer for AI.
+**Helix** is a framework for engineering consciousness using networks of AI task modules. Think of it like a **modular synthesizer for AI**. Read more about the concept [in this blog post]().
 
-Read more about the concept [in this blog post]().
+Though the project has lofty goals, Helix as framework may be practical for all sorts of uses, such as:
+
+ * Building feedback-driven, self-training and adversarial AI systems
+ * Making human-in-the-loop and human-out-of-the-loop AI networks
+ * Giving new capabilities (internet access, UNIX shells, robot controls) to AI systems
+ * Experiments in multi-modal AI networks
+ * Unsupervised knowledge creation
 
 ## Installation and Basic Usage
 
