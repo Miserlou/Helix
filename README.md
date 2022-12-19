@@ -17,7 +17,7 @@ Helix is written in **Elixir** and provides a web interface with **Phoenix LiveV
 
 ## Installation and Basic Usage
 
-**🚨🚨🚨 Before you begin, be aware that Helix, left unattended, can eat through OpenAI credits as fast as it can! 🚨🚨🚨**
+**🚨🚨🚨 Warning! Helix, left unattended, may eat through OpenAI credits as fast as it can! 🚨🚨🚨**
 
 _These instructions assume you have [Elixir installed](https://elixir-lang.org/install.html)._
 
