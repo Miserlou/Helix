@@ -12,7 +12,7 @@ defmodule HelixWeb.MainLive do
         page_title: "Helix",
         selected_graph: graphs |> List.first(),
         graphs: graphs,
-        graph_preview: Graph.load_and_render(graphs |> List.first()),
+        graph_preview: Graph.load_and_render_template(graphs |> List.first()),
         started: false
       )
     }
@@ -22,7 +22,7 @@ defmodule HelixWeb.MainLive do
   def handle_event("select_graph", %{"graph" => graph}, socket) do
     {:noreply, assign(socket,
         selected_graph: graph,
-        graph_preiew: Graph.load_and_render(graph)
+        graph_preiew: Graph.load_and_render_template(graph)
       )}
   end
 

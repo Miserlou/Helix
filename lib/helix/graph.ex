@@ -4,12 +4,9 @@ defmodule Helix.Graph do
   require Solid
 
   def load_graph(path) do
-    IO.inspect("Loading " <> path)
 
-    dot_string = load_and_render(path)
-
-    decoded_graph = Dotx.decode!(dot_string)
-    {nodes, graph} = Dotx.to_nodes(decoded_graph)
+    dot_string = load_and_render_template(path)
+    {nodes, graph} = load_graph_from_dot_string(dot_string)
 
     instantiate_nodes(nodes)
 
@@ -24,13 +21,15 @@ defmodule Helix.Graph do
     graph
   end
 
-  def load_and_render(path) do
-    IO.inspect("Rendering..")
+  def load_and_render_template(path) do
     contents = File.read!(path)
     {:ok, template} = Solid.parse(contents)
-    rendered = Solid.render!(template, %{}) |> to_string |> String.trim()
-    IO.inspect(rendered)
-    rendered
+    Solid.render!(template, %{}) |> to_string |> String.trim()
+  end
+
+  def load_graph_from_dot_string(dot_s) do
+    decoded_graph = Dotx.decode!(dot_s)
+    Dotx.to_nodes(decoded_graph)
   end
 
   @spec instantiate_nodes(any) :: list
