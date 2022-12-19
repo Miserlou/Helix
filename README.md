@@ -1,23 +1,23 @@
 # Helix
 ## A Playground for Engineering Consciousness
 
-**Helix** is a framework for engineering consciousness using networks of AI task modules. Think of it like a **modular synthesizer for AI**. Read more about the concept [in this blog post]().
+**Helix** is a framework for engineering consciousness using networks of AI Task Modules. Think of it like a **modular synthesizer for AI**. Read more about the concept [in this blog post](). In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
 
-In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
+You interact with Helix by using and writing **Task Modules**, which provide a single AI capability, and creating **Graphs**, which describe a network of those modules and their inputs and outputs.
 
-You interact with Helix by using and writing **Task Modules**, which use a single AI capability, and creating **Graphs**, which describes a network of those modules and their inputs and outputs.
-
-Though the project has lofty goals, Helix as framework may be practical for all sorts of uses, such as:
+Though the project has lofty goals, Helix as a framework may be practical for all sorts of uses, such as:
 
  * Building **feedback-driven**, **self-training** and **internally-adversarial** AI systems
  * Making **human-in-the-loop** and **human-out-of-the-loop** AI networks
  * Giving **real-world capabilities** (internet access, UNIX shells, robot controls) to AI systems
- * Experimenting in **multi-modal AI** networks
+ * Designing **multi-modal AI** networks
  * **Unsupervised knowledge creation**
+
+Helix is written in **Elixir** and provides a web interface with **Phoenix LiveView**.
 
 ## Installation and Basic Usage
 
-**Before you begin, be aware that Helix, left unattended, can eat through OpenAI credits as fast as it can!**
+**🚨🚨🚨 Before you begin, be aware that Helix, left unattended, can eat through OpenAI credits as fast as it can! 🚨🚨🚨**
 
 _These instructions assume you have [Elixir installed](https://elixir-lang.org/install.html)._
 
