@@ -66,7 +66,7 @@ Place your graphs in `./priv/graphs`.
 
 ## Creating Your Own Modules
 
-Creating a module is very simple. All a module must do is implement `handle_cast({:convey, event}, state)` to receive inputs from other modules, and at the end of that function call `convey(output_value, targets)` to pass a message along.
+Creating a module is very simple. All a module must do is implement `handle_cast({:convey, event}, state)` to receive inputs from other modules, and at the end of that function call `convey(output_value, state)` to pass a message along.
 
 So, the simplest passthrough module will be:
 
@@ -85,10 +85,10 @@ end
 
 ## Dev TODO
 
- - Create modified Heex/DOT template format
+ X Create modified Heex/DOT template format
  - Web Interface
     - Image representations
-    - Choose Graph from folder, instantiate 
+    X Choose Graph from folder, instantiate 
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, `ClockModule`, `OutputModule`, `TextInputModule`

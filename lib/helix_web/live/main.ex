@@ -51,7 +51,6 @@ defmodule HelixWeb.MainLive do
 
   @impl true
   def handle_info(%{event: "convey", payload: event}, socket) do
-    IO.inspect("Got LiveModule event")
     {:noreply,
       socket
       |> assign(events: socket.assigns.events ++ [event])

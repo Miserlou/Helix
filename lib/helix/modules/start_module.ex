@@ -9,7 +9,7 @@ defmodule Helix.Modules.StartModule do
 
   @impl true
   def handle_info(:start, state) do
-    convey(state.message, state.targets)
+    convey(state.message, state)
     {:noreply, state}
   end
 

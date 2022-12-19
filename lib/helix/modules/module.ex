@@ -1,6 +1,8 @@
 defmodule Helix.Modules.Module do
   use GenServer
 
+  require UUID
+
   defmacro __using__(_) do
     quote do
       @behaviour Module
@@ -25,11 +27,14 @@ defmodule Helix.Modules.Module do
       #   {:noreply, state}
       # end
 
-      def convey(value, targets) do
-        for target <- targets do
+      def convey(value, state) do
+        for target <- state.targets do
           event = %{
             type: :text,
-            value: value
+            value: value,
+            source_id: state.id,
+            message_id: UUID.uuid4(),
+            timestamp: :os.system_time(:milli_seconds)
           }
           GenServer.cast(get_pid_for_name(target), {:convey, event})
         end

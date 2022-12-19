@@ -63,7 +63,8 @@ defmodule Helix.MixProject do
       #{:libgraph, "~> 0.7"},
       {:dotx, "~> 0.3.1"},
       {:solid, "~> 0.14"},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:uuid, "~> 1.1.8" }
 
 
     ]

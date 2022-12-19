@@ -12,7 +12,7 @@ defmodule Helix.Modules.GPTModule do
 
     value = extract_result(res)
 
-    convey(value, state.targets)
+    convey(value, state)
     {:noreply, state}
   end
 
