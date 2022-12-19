@@ -43,6 +43,8 @@ defmodule Helix.Modules.Module do
         pid
       end
 
+      defoverridable [init: 1]
+
     end
   end
 end

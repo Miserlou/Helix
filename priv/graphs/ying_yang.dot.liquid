@@ -5,8 +5,12 @@ digraph Daoism{
   Ying [module=GPTModule, prompt="{{ying_prompt}}"]
   Yang [module=GPTModule, prompt="{{yang_prompt}}"]
   Print [module=PrintModule]
+  Live [module=LiveOutputModule]
+  Start [module=StartModule, delay=2000, message="Om."]
 
+  Start -> Ying
   Ying -> Yang
   Yang -> Ying
   Yang -> Print
+  Yang -> Live
 }
