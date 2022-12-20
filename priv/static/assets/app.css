@@ -2535,6 +2535,10 @@ select {
   font-weight: 500;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
@@ -2543,6 +2547,11 @@ select {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-error {
+  --tw-text-opacity: 1;
+  color: hsl(var(--er) / var(--tw-text-opacity));
 }
 
 .shadow-md {

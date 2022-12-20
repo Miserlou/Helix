@@ -18,7 +18,8 @@ defmodule HelixWeb.MainLive do
         graphs: graphs,
         graph_preview: Graph.load_and_render_template(graphs |> List.first()),
         started: false,
-        events: []
+        events: [],
+        load_error: nil
       )
     }
   end
@@ -33,10 +34,19 @@ defmodule HelixWeb.MainLive do
 
   @impl true
   def handle_event("load_graph", _, socket) do
-    Graph.load_graph(socket.assigns.selected_graph)
-    {:noreply, assign(socket,
-        started: true
-    )}
+    try do
+      Graph.load_graph(socket.assigns.selected_graph)
+      {:noreply, assign(socket,
+        started: true,
+        load_error: nil
+      )}
+    catch
+      _k, e ->
+        {:noreply, assign(socket,
+            started: false,
+            load_error: e.message
+        )}
+    end
   end
 
   @impl true

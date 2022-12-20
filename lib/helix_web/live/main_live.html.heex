@@ -24,6 +24,17 @@
         <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" phx-click="load_graph">Run Graph</button>
       </div>
 
+      <%= if @load_error do %>
+        <div class="">
+          <label class="label block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <span class="label-text">Loading Error:</span>
+          </label>
+        </div>
+        <div class="code text-error font-bold text-sm mb-2 bg-base-200 p-2 rounded-md">
+          <%= @load_error %>
+        </div>
+      <% end %>
+
         <div class="">
           <label class="label block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             <span class="label-text">Preview:</span>
