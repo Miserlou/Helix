@@ -2422,18 +2422,6 @@ select {
   height: 100%;
 }
 
-.h-12 {
-  height: 3rem;
-}
-
-.h-48 {
-  height: 12rem;
-}
-
-.h-24 {
-  height: 6rem;
-}
-
 .h-28 {
   height: 7rem;
 }
@@ -2470,6 +2458,10 @@ select {
   align-items: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .overflow-x-scroll {
   overflow-x: scroll;
 }
@@ -2496,11 +2488,6 @@ select {
 
 .border-t {
   border-top-width: 1px;
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
 .border-gray-800 {
@@ -2638,6 +2625,10 @@ select {
 .text-error {
   --tw-text-opacity: 1;
   color: hsl(var(--er) / var(--tw-text-opacity));
+}
+
+.opacity-50 {
+  opacity: 0.5;
 }
 
 .shadow-md {

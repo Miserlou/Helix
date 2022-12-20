@@ -1,6 +1,7 @@
 defmodule HelixWeb.HelixComponents do
   use Phoenix.Component
   alias Phoenix.HTML
+  alias ColourHash
 
   def render_event(assigns) do
 
@@ -13,11 +14,20 @@ defmodule HelixWeb.HelixComponents do
       <div class="col-span-1">
       </div>
       <div class="col-span-8">
-        <div class="border bg-base-200 mb-1 rounded-lg shadow-md border-gray-400 rounded-md p-2">
+        <div class="border bg-base-200 mb-1 rounded-lg shadow-md rounded-md p-2" style={"border-color: #" <> colorize(source_id)}>
           <%= Phoenix.HTML.raw(value) %>
         </div>
-        <div class="text-xs mb-2">
-          <b><i><%= source_id %></i></b>
+        <div class="text-xs mb-2" style={"color: #" <> colorize(source_id)}>
+          <div class="flex justify-between w-full">
+            <div class="">
+              <b><i><%= source_id %></i></b>
+            </div>
+            <div class="">
+              <span class="text-thin text-right opacity-50">
+                <%= DateTime.from_unix!(timestamp, :millisecond) |> Calendar.strftime("%I:%M:%S")%>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-span-1">
@@ -82,6 +92,10 @@ defmodule HelixWeb.HelixComponents do
 
     # <% end %>
 
+  end
+
+  defp colorize(text) do
+    ColourHash.hex(text, lightness: [0.5, 0.9], saturation: [0.4, 0.9])
   end
 
 end

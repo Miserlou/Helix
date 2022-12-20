@@ -73,7 +73,7 @@ defmodule HelixWeb.MainLive do
     event = %{
       type: :text,
       value: message,
-      source_id: "LiveInputForm",
+      source_id: "You:" <> target,
       message_id: UUID.uuid4(),
       timestamp: :os.system_time(:milli_seconds)
     }

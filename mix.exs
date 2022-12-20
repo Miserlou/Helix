@@ -59,13 +59,13 @@ defmodule Helix.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       # Helix
-      {:openai, "~> 0.2.0"},
+      {:openai, "~> 0.2.1"},
       #{:libgraph, "~> 0.7"},
       {:dotx, "~> 0.3.1"},
       {:solid, "~> 0.14"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:uuid, "~> 1.1.8" }
-
+      {:uuid, "~> 1.1.8" },
+      {:colour_hash, "~> 1.0.3"}
 
     ]
   end
