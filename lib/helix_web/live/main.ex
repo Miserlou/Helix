@@ -81,6 +81,7 @@ defmodule HelixWeb.MainLive do
 
     {
       :noreply, assign(socket,
+      all_events: socket.assigns.all_events ++ [event],
       message: ""
     )}
   end

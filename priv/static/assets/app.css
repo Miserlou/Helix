@@ -2422,6 +2422,26 @@ select {
   height: 100%;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-28 {
+  height: 7rem;
+}
+
+.max-h-screen {
+  max-height: 100vh;
+}
+
 .w-full {
   width: 100%;
 }
