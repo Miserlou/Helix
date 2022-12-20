@@ -7,18 +7,9 @@ defmodule Helix.Graph do
 
     dot_string = load_and_render_template(path)
     {nodes, graph} = load_graph_from_dot_string(dot_string)
-
     instantiate_nodes(nodes)
 
-    ## Start it off
-    # ying_pid = :ets.lookup(:pids, "Ying") |> Enum.at(0) |> elem(1)
-    # event = %{
-    #   type: :text,
-    #   value: "Hello"
-    # }
-    # GenServer.cast(ying_pid, {:convey, event})
-
-    graph
+    {nodes, graph}
   end
 
   def load_and_render_template(path) do

@@ -1897,6 +1897,12 @@ select {
   gap: 0.5rem;
 }
 
+.avatar.placeholder > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @-webkit-keyframes spin {
   from {
     transform: rotate(0deg);
@@ -2309,8 +2315,16 @@ select {
   position: static;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .relative {
   position: relative;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .col-span-1 {
@@ -2329,6 +2343,10 @@ select {
   grid-column: span 2 / span 2;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .mx-1 {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
@@ -2337,6 +2355,11 @@ select {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .mt-1 {
@@ -2365,6 +2388,14 @@ select {
 
 .mt-12 {
   margin-top: 3rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .block {
@@ -2403,6 +2434,14 @@ select {
   grid-template-columns: repeat(10, minmax(0, 1fr));
 }
 
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -2431,6 +2470,14 @@ select {
   border-width: 1px;
 }
 
+.border-t-2 {
+  border-top-width: 2px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
@@ -2444,6 +2491,16 @@ select {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-t-blue-700 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(29 78 216 / var(--tw-border-opacity));
 }
 
 .bg-base-200 {
@@ -2479,6 +2536,10 @@ select {
   padding: 0.625rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2502,6 +2563,11 @@ select {
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pt-24 {

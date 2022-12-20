@@ -3,10 +3,10 @@
 {% assign decider_prompt=" " %}
 
 digraph ConsciousnessAlpha{
-  Stimulus [module=LiveInput]
+  Stimulus [module=LiveInputModule]
   Observer [module=GPTModule, prompt="{{observer_prompt}}"]
   Critic [module=GPTModule, prompt="{{critic_prompt}}"]
-  Decider [module=GPTModul, prompt="{{decider_prompt}}"]
+  Decider [module=GPTModule, prompt="{{decider_prompt}}"]
   Output [module=LiveOutputModule]
 
   Stimulus -> Observer
