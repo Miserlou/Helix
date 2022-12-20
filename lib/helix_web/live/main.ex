@@ -24,7 +24,8 @@ defmodule HelixWeb.MainLive do
         load_error: nil,
         loaded_graph_name: "",
         input_targets: [],
-        message: ""
+        message: "",
+        target: "",
       )
     }
   end
@@ -55,7 +56,8 @@ defmodule HelixWeb.MainLive do
         load_error: nil,
         loaded_graph_name: Map.keys(graph) |> List.first(),
         page_title: Map.keys(graph) |> List.first(),
-        input_targets: input_targets
+        input_targets: input_targets,
+        target: input_targets |> List.first()
       )}
     catch
       _k, e ->
@@ -82,12 +84,13 @@ defmodule HelixWeb.MainLive do
     {
       :noreply, assign(socket,
       all_events: socket.assigns.all_events ++ [event],
-      message: ""
+      message: "",
+      target: target
     )}
   end
 
   def handle_event("message_updated", %{"input" => %{"message" => message, "target" => target}}, socket) do
-    {:noreply, assign(socket, message: message)}
+    {:noreply, assign(socket, message: message, target: target)}
   end
 
   ##
