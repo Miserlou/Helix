@@ -1,18 +1,37 @@
-{% assign observer_prompt=" " %}
-{% assign critic_prompt=" " %}
-{% assign decider_prompt=" " %}
+{% capture observer_prompt %}
+You are an insightful observer. You is to experience the world and to generate new descriptions and new ideas based upon what you see.
+Your rival is a critic, who judges your ideas as being trite or incorrect.
+Your job is to make the critic admit that your idea is new and good.
+
+From the world, you experience: {Stimulus}
+On your last idea, the critic said: {Critic}
+Your new idea is:
+{% endcapture %}
+
+{% capture critic_prompt %}
+You are a critical thinker judging a precocious student. When presented with an idea, your job is to fairly decide if the idea is logical and insightful, or incorrect and trite.
+The idea presented to you now is: {Critic}
+Your response is:
+{% endcapture %}
+
+{% capture decider_prompt %}
+You are the internal voice of a person in conversation with their friend.
+Your job is to decide if an idea is good enough to be spoken out load. Your friend is very difficult to impress and will only respond positively to very insightful ideas.
+You may ONLY reply with two words: YES or NO. Say YES if you want this idea to be spoken, or say NO if you don't.
+Reply only with YES or NO.
+The idea you are thinking about now is {Observer}.
+{% endcapture %}
 
 digraph ConsciousnessAlpha{
   Stimulus [module=LiveInputModule]
-  Observer [module=GPTModule, prompt="{{observer_prompt}}"]
-  Critic [module=GPTModule, prompt="{{critic_prompt}}"]
-  Decider [module=GPTModule, prompt="{{decider_prompt}}"]
+  Observer [module=GPTModule, prompt="{{observer_prompt}}", delay=5000]
+  Critic [module=GPTModule, prompt="{{critic_prompt}}", delay=5000]
+  Decider [module=GPTDecisionModule, prompt="{{decider_prompt}}", delay=5000]
   Output [module=LiveOutputModule]
 
   Stimulus -> Observer
   Observer -> Critic
   Observer -> Decider
   Critic -> Observer
-  Critic -> Decider
   Decider -> Output
 }

@@ -42,6 +42,7 @@ defmodule HelixWeb.MainLive do
   def handle_event("load_graph", _, socket) do
     try do
       {nodes, graph} = Graph.load_graph(socket.assigns.selected_graph)
+      has_input = Graph.has_live_input?(nodes)
       input_targets = Enum.reduce(nodes, [], fn i, acc ->
         {key, node} = i
         name = key |> List.first()
@@ -57,7 +58,8 @@ defmodule HelixWeb.MainLive do
         loaded_graph_name: Map.keys(graph) |> List.first(),
         page_title: Map.keys(graph) |> List.first(),
         input_targets: input_targets,
-        target: input_targets |> List.first()
+        target: input_targets |> List.first(),
+        has_input: has_input
       )}
     catch
       _k, e ->
@@ -71,22 +73,25 @@ defmodule HelixWeb.MainLive do
   @impl true
   def handle_event("submit_message", %{"input" => %{"message" => message, "target" => target}}, socket) do
 
-    target_pid = :ets.lookup(:pids, target) |> Enum.at(0) |> elem(1)
-    event = %{
-      type: :text,
-      value: message,
-      source_id: "You:" <> target,
-      message_id: UUID.uuid4(),
-      timestamp: :os.system_time(:milli_seconds)
-    }
-    GenServer.cast(target_pid, {:convey, event})
-
-    {
-      :noreply, assign(socket,
-      all_events: socket.assigns.all_events ++ [event],
-      message: "",
-      target: target
-    )}
+    if socket.assigns.has_input do
+      target_pid = :ets.lookup(:pids, target) |> Enum.at(0) |> elem(1)
+      event = %{
+        type: :text,
+        value: message,
+        source_id: "You:" <> target,
+        message_id: UUID.uuid4(),
+        timestamp: :os.system_time(:milli_seconds)
+      }
+      GenServer.cast(target_pid, {:convey, event})
+      {
+        :noreply, assign(socket,
+        all_events: socket.assigns.all_events ++ [event],
+        message: "",
+        target: target
+      )}
+    else
+      {:noreply, socket}
+    end
   end
 
   def handle_event("message_updated", %{"input" => %{"message" => message, "target" => target}}, socket) do

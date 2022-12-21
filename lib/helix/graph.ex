@@ -13,9 +13,14 @@ defmodule Helix.Graph do
   end
 
   def load_and_render_template(path) do
-    contents = File.read!(path)
-    {:ok, template} = Solid.parse(contents)
-    Solid.render!(template, %{}) |> to_string |> String.trim()
+    try do
+      contents = File.read!(path)
+      {:ok, template} = Solid.parse(contents)
+      Solid.render!(template, %{}) |> to_string |> String.trim()
+    catch
+      _k, e ->
+        Kernel.inspect(e)
+    end
   end
 
   def load_graph_from_dot_string(dot_s) do
@@ -36,6 +41,7 @@ defmodule Helix.Graph do
         |> Map.put(:targets, get_targets_for_node(node))
         |> Map.put(:input_history, %{})
         |> Map.put(:output_history, [])
+        |> Map.put(:last_input, nil)
 
       {:ok, pid} = GenServer.start_link(module, initial_state)
       # {:ok, pid} = GenServer.start(module, initial_state)
@@ -58,6 +64,17 @@ defmodule Helix.Graph do
   def list_local_graphs() do
     path = :code.priv_dir(:helix) |> Path.join("graphs") |> Path.join("*")
     Path.wildcard(path)
+  end
+
+  def has_live_input?(nodes) do
+    Enum.reduce(nodes, false, fn i, acc ->
+      {key, node} = i
+      if Map.get(node.attrs, "module") == "LiveInputModule" do
+        true
+      else
+        acc
+      end
+    end)
   end
 
 end

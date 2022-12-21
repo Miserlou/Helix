@@ -84,8 +84,9 @@
               <%= text_input f,
                 :message,
                 value: @message,
-                placeholder: "Type input here..",
+                placeholder: (if @has_input do "Type input here.." else "This graph has no input." end),
                 autofocus: true,
+                disabled: !@has_input,
                 autocomplete: "off",
                 class: "bg-gray-50 border-t border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               %>
@@ -93,12 +94,13 @@
             <div class="col-span-2 mx-2">
               <%= select f, :target,
                   @input_targets,
+                  disabled: !@has_input,
                   value: @target,
                   class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               %>
             </div>
             <div class="col-span-2 mr-2">
-              <button class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send</button>
+              <button disabled={!@has_input} class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send</button>
             </div>
           </div>
         </form>

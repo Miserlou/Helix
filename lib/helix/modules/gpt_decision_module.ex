@@ -1,4 +1,4 @@
-defmodule Helix.Modules.GPTModule do
+defmodule Helix.Modules.GPTDecisionModule do
 
   use Helix.Modules.Module
   import Helix.Modules.GPTUtils
@@ -12,13 +12,15 @@ defmodule Helix.Modules.GPTModule do
     {:ok, res} = OpenAI.completions(
       Map.get(state, :model, "text-davinci-003"),
       prompt: prompt,
-      max_tokens: String.to_integer(Map.get(state, :max_tokens, "1000")),
+      max_tokens: String.to_integer(Map.get(state, :max_tokens, "200")),
       temperature: String.to_float(Map.get(state, :temperature, "0.8"))
     )
-
     value = extract_result(res)
 
-    convey(value, state)
+    if String.contains?(value, Map.get(state, :decider, "YES")) do
+      convey(state.last_input.value, state)
+    end
+
     {:noreply, state}
   end
 
