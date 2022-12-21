@@ -1,16 +1,16 @@
 {% capture gpt_prompt %}
 
 You are a helpful virtual assistant. Your name is GPT. You are talking to somebody named Input. 
-It is your job to answer Input's questions in the most helpful and accurate way possible you can.
+It is your job to answer Input's questions in the most helpful and accurate way possible you can. 
+DO NOT start your reply by saying 'Output: ' - just speak.
 
-This is the history of your conversation with Input:
+This is the history of your conversation with Input.
 
 ===
 {HISTORY}
 ===
 
-It is now your turn to speak. 
-
+(DO NOT START BY SAYING OUTPUT!) Your reply is:
 {% endcapture %}
 
 digraph SimpleGPT{

@@ -17,6 +17,7 @@ defmodule Helix.Modules.GPTModule do
     ) do
       {:ok, res} ->
         value = extract_result(res)
+        IO.inspect(res)
         output_state = convey(value, state)
         {:noreply, output_state}
       {:error, :timeout} ->
