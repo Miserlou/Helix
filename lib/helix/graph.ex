@@ -18,8 +18,8 @@ defmodule Helix.Graph do
       {:ok, template} = Solid.parse(contents)
       Solid.render!(template, %{}) |> to_string |> String.trim()
     catch
-      _k, e ->
-        Kernel.inspect(e)
+      k, e ->
+        Kernel.inspect(k) <> ": " <> Kernel.inspect(e)
     end
   end
 
@@ -42,6 +42,8 @@ defmodule Helix.Graph do
         |> Map.put(:input_history, %{})
         |> Map.put(:output_history, [])
         |> Map.put(:last_input, nil)
+
+      IO.inspect("initial_state")
 
       {:ok, pid} = GenServer.start_link(module, initial_state)
       # {:ok, pid} = GenServer.start(module, initial_state)

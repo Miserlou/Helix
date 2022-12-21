@@ -62,10 +62,10 @@ defmodule HelixWeb.MainLive do
         has_input: has_input
       )}
     catch
-      _k, e ->
+      k, e ->
         {:noreply, assign(socket,
             started: false,
-            load_error: e.message
+            load_error: Kernel.inspect(k) <> ": " <> Kernel.inspect(e)
         )}
     end
   end

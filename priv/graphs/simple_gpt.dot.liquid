@@ -1,0 +1,8 @@
+digraph SimpleGPT{
+  Input [module=LiveInputModule]
+  GPT [module=GPTModule, prompt="{Input}", temperature="0.8"]
+  Output [module=LiveOutputModule]
+
+  Input -> GPT
+  GPT -> Output
+}
