@@ -1,4 +1,4 @@
-{% capture observer_prompt %}
+{% capture gpt_prompt %}
 
 You are a helpful virtual assistant. Your name is GPT. You are talking to somebody named Input. 
 It is your job to answer Input's questions in the most helpful and accurate way possible you can.
@@ -15,7 +15,7 @@ It is now your turn to speak.
 
 digraph SimpleGPT{
   Input [module=LiveInputModule]
-  GPT [module=GPTModule, prompt="{HISTORY}"]
+  GPT [module=GPTModule, prompt="{{gpt_prompt}}"]
   Output [module=LiveOutputModule]
 
   Input -> GPT

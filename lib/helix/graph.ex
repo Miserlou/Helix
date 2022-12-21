@@ -43,8 +43,6 @@ defmodule Helix.Graph do
         |> Map.put(:output_history, [])
         |> Map.put(:last_input, nil)
 
-      IO.inspect("initial_state")
-
       {:ok, pid} = GenServer.start_link(module, initial_state)
       # {:ok, pid} = GenServer.start(module, initial_state)
 
