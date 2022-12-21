@@ -9,17 +9,23 @@ defmodule Helix.Modules.GPTModule do
     prompt = update_prompt(state)
     :timer.sleep(String.to_integer(Map.get(state, :delay, "0")))
 
-    {:ok, res} = OpenAI.completions(
+    case OpenAI.completions(
       Map.get(state, :model, "text-davinci-003"),
       prompt: prompt,
       max_tokens: String.to_integer(Map.get(state, :max_tokens, "1000")),
       temperature: String.to_float(Map.get(state, :temperature, "0.8"))
-    )
-
-    value = extract_result(res)
-
-    convey(value, state)
-    {:noreply, state}
+    ) do
+      {:ok, res} ->
+        value = extract_result(res)
+        output_state = convey(value, state)
+        {:noreply, output_state}
+      {:error, :timeout} ->
+        # XXX TODO: Handle properly
+        IO.inspect("XXX: Timeout error")
+        {:noreply, state}
+      {:error, e} ->
+        IO.inspect("Unexpcected error: " <> Kernel.inspect(e))
+        {:noreply, state}
+    end
   end
-
 end

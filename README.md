@@ -117,6 +117,8 @@ _XXX TODO_
  - Self-embedding
  - Access to the internet
  - Multi-modal stimuli
+ - Self-Observing Solving a Puzzle
+ -  
 
 ## Contributing
 

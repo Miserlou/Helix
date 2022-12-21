@@ -22,13 +22,8 @@ defmodule Helix.Modules.Module do
         {:ok, state}
       end
 
-      # def handle_cast({:convey, event}, state) do
-      #   convey_to_targets("Test", state.targets)
-      #   {:noreply, state}
-      # end
-
       def convey(value, state) do
-        for target <- state.targets do
+        sent_events = Enum.reduce(state.targets, [], fn target, event_acc ->
           event = %{
             type: :text,
             value: value,
@@ -37,7 +32,9 @@ defmodule Helix.Modules.Module do
             timestamp: :os.system_time(:milli_seconds)
           }
           GenServer.cast(get_pid_for_name(target), {:convey, event})
-        end
+          event_acc ++ [event]
+        end )
+        %{state | output_history: state.output_history ++ [sent_events]}
       end
 
       ##
