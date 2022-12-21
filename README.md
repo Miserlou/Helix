@@ -120,8 +120,12 @@ _XXX TODO_
 
 ## Contributing
 
-Please, feel free to play around with this, but I encourage you to share your feedback, ideas, and experiments. Please use GitHub issues for this.
+Please, feel free to play around with Helix! I encourage you to share your feedback, ideas, and experiments. Please use GitHub issues for this.
+
+If you'd like to make code contributions or submit graphs/modules, please send a pull request. However, for me to accept pull requests into the project, you must agree that you assign me the copyright of your contribution. 
+
+(I don't like having to do ask for copyright assignment, but I want to be retain the ability to relicense to something more permissive in the future while still maintaing a defense against parasitic corporations. If you want to discuss this further, feel free to open a meta-issue.)
 
 ## License
 
-Rich Jones, 2022+, AGPL.
+(c) Rich Jones, 2022+, AGPL.

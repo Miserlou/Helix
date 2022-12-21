@@ -10,16 +10,16 @@ Your new idea is:
 
 {% capture critic_prompt %}
 You are a critical thinker judging a precocious student. When presented with an idea, your job is to fairly decide if the idea is logical and insightful, or incorrect and trite.
-The idea presented to you now is: {Critic}
+The idea presented to you now is: {Observer}
 Your response is:
 {% endcapture %}
 
 {% capture decider_prompt %}
 You are the internal voice of a person in conversation with their friend.
-Your job is to decide if an idea is good enough to be spoken out load. Your friend is very difficult to impress and will only respond positively to very insightful ideas.
+Your job is to decide if an idea is good enough to be spoken out loud. Your friend is very difficult to impress and will only respond positively to very insightful, fully-formed and original ideas.
 You may ONLY reply with two words: YES or NO. Say YES if you want this idea to be spoken, or say NO if you don't.
 Reply only with YES or NO.
-The idea you are thinking about now is {Observer}.
+The idea you are thinking about now is: {Observer}.
 {% endcapture %}
 
 digraph ConsciousnessAlpha{
