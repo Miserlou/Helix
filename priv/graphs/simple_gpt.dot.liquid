@@ -1,3 +1,18 @@
+{% capture observer_prompt %}
+
+You are a helpful virtual assistant. Your name is GPT. You are talking to somebody named Input. 
+It is your job to answer Input's questions in the most helpful and accurate way possible you can.
+
+This is the history of your conversation with Input:
+
+===
+{HISTORY}
+===
+
+It is now your turn to speak. 
+
+{% endcapture %}
+
 digraph SimpleGPT{
   Input [module=LiveInputModule]
   GPT [module=GPTModule, prompt="{HISTORY}"]

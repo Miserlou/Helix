@@ -12,7 +12,7 @@ defmodule Helix.Modules.GPTModule do
     case OpenAI.completions(
       Map.get(state, :model, "text-davinci-003"),
       prompt: prompt,
-      max_tokens: String.to_integer(Map.get(state, :max_tokens, "1000")),
+      max_tokens: String.to_integer(Map.get(state, :max_tokens, "2048")),
       temperature: String.to_float(Map.get(state, :temperature, "0.8"))
     ) do
       {:ok, res} ->

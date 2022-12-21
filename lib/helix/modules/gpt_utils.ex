@@ -46,7 +46,7 @@ defmodule Helix.Modules.GPTUtils do
     sorted_events = Enum.sort_by(all_events, &Map.fetch(&1, :timestamp))
     Enum.reduce(sorted_events, "", fn event, string_acc ->
       string_acc <> event.source_id <> ": " <> event.value <> "\n\n"
-    end) |> IO.inspect()
+    end)
   end
 
 end
