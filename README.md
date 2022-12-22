@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="460" src="https://i.imgur.com/XD1HifC.png">
+  <img width="400" height="400" src="https://i.imgur.com/XD1HifC.png">
 </p>
 
 # Helix
