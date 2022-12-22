@@ -55,7 +55,7 @@ Run the application with `source .env && mix phx.server`, or use the provided `r
 
 ### Using the Web Application
 
-Once Helix, is running, you can visit [localhost:4000](https://localhost:4000) to interact with it.
+Once Helix is running, you can visit [localhost:4000](https://localhost:4000) to interact with it.
 
 On the first screen, you can see all of your availble graphs:
 
@@ -71,7 +71,7 @@ On the next page, you can interact with your network (if it has LiveInput and Li
   <img height="600" src="https://i.imgur.com/O6JVSfY.png">
 </p>
 
-Notice that if your graph has multiple LiveInput targets, your can choose which to target using the dropdown.
+Notice that if your graph has multiple LiveInput targets, your can choose which to target using the dropdown. Each module in the graph will have it's own bubble color.
 
 ## Creating Your Own Graphs
 
