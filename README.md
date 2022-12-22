@@ -3,13 +3,15 @@
 </p>
 
 # Helix
-### A Playground for Engineering Consciousness
+### A Framework for Engineering Consciousness
 
 [![GitHub](https://img.shields.io/github/stars/Miserlou/Helix?style=social)](https://github.com/Miserlou/Helix)
 [![Hex.pm](https://img.shields.io/hexpm/v/Helix.svg)](https://hex.pm/packages/helix)
 [![WIP](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/Miserlou/Helix)
 
-**Helix** is a framework for engineering consciousness using networks of AI Task Modules. Think of it like a **modular synthesizer for AI**. Read more about the concept [in this blog post](). In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
+**Helix** is a framework for building multi-model, feedback-looping AI systems. It's like a **modular synthesizer** for **AI**. 
+
+Read more about the concept [in this blog post](). In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
 
 You interact with Helix by using and writing **Task Modules**, which provide a single AI capability, and creating **Graphs**, which describe a network of those modules and their inputs and outputs.
 
