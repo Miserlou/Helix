@@ -49,4 +49,18 @@ defmodule Helix.Modules.GPTUtils do
     end)
   end
 
+  def get_state(state, key, default) do
+    value = Map.get(state, key, default)
+    try do
+      if String.contains?(value, ".") do
+        String.to_float(Map.get(state, value, default))
+      else
+        String.to_integer(Map.get(state, value, default))
+      end
+    catch
+      _e, _v ->
+        value
+      end
+  end
+
 end
