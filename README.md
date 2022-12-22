@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="460" height="300" src="https://i.imgur.com/XD1HifC.png">
+</p>
+
 # Helix
 ## A Playground for Engineering Consciousness
 
@@ -118,7 +122,7 @@ _XXX TODO_
  - Access to the internet
  - Multi-modal stimuli
  - Self-Observing Solving a Puzzle
- -  
+ - Recursive problem-solving
 
 ## Contributing
 
