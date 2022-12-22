@@ -118,7 +118,7 @@ end
  - Error Handling / `ErrorModule`
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
- - More modules: `MixModule`, `ClockModule`, ~~`OutputModule`~~, ~~`TextInputModule`~~
+ - More modules: `MixModule`, ~~`ClockModule`~~, ~~`OutputModule`~~, ~~`TextInputModule`~~
  - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `AwaitModule`, ~~`GPTDecisionModule`~~ module.
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
