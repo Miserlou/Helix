@@ -15,6 +15,8 @@ Read more about the concept [in this blog post](). In this analogy, if `GPT` is 
 
 You interact with Helix by using and writing **Task Modules**, which provide a single AI capability, and creating **Graphs**, which describe a network of those modules and their inputs and outputs.
 
+### Use Cases
+
 Though the project has lofty goals, Helix as a framework may be practical for all sorts of uses, such as:
 
  * Building **feedback-driven**, **self-training** and **internally-adversarial** AI systems
