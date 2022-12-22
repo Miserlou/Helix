@@ -55,7 +55,23 @@ Run the application with `source .env && mix phx.server`, or use the provided `r
 
 ### Using the Web Application
 
-_XXX TODO_
+Once Helix, is running, you can visit [localhost:4000](https://localhost:4000) to interact with it.
+
+On the first screen, you can see all of your availble graphs:
+
+<p align="center">
+  <img height="600" src="https://i.imgur.com/RuhkLHi.png">
+</p>
+
+Choose a graph from the dropdown to preview the rendered graph file. Press "Load Graph" to start the network.
+
+On the next page, you can interact with your network (if it has LiveInput and LiveOutput modules in the graph.)
+
+<p align="center">
+  <img height="600" src="https://i.imgur.com/O6JVSfY.png">
+</p>
+
+Notice that if your graph has multiple LiveInput targets, your can choose which to target using the dropdown.
 
 ## Creating Your Own Graphs
 
