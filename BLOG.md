@@ -20,7 +20,9 @@ Rather than a brain, the analogy we will be using for the project will be a modu
 
 Alan Turning showed that there is a minimum set of requirements for a machine to be able to implement any function, and that that minimum set of requirements is actually remarkably small - a tape, a head to read and write to the tape, a state register, and a table of instructions. That's it. Of course, modern computers are vastly more complex than that, but at the end of the day, that's all you need for classical computation.
 
-So, the question is - is there a similar minimum set of requirements for consciousness/knowledge-generation? I think perhaps there is, and that Helix could be a good framework to explore that question.
+So, the question is - is there a similar minimum set of requirements for consciousness/knowledge-generation? Perhaps it requires the ability to recursively identify problems and to propose and discover solutions. Perhaps it requires the ability to observe the world, to remember past worlds, and to compare them. Perhaps it requires the ability to observe the world, explain the world, interact with the world, and re-explain the world after the interaction. 
+
+I don't know yet, but I think that Helix could be a good framework to explore that question.
 
 ## High Level / Low Level AI
 
@@ -68,13 +70,21 @@ and here's that architecture running in Helix:
   <img height="600" src="https://i.imgur.com/O6JVSfY.png">
 </p>
 
-You can watch it generate new ideas which evolve over time, you can change the stimulus and watch those ideas co-mingle. It's quite fun! All of the nodes are running as separate processes. Some of the nodes take input and curry outputs.
-
 This is a toy example, and I don't think the system is generating any new knowledge, but I hope it shows an idea of what I'm tilting towards.
 
+You can watch it generate new ideas which evolve over time and you can change the stimulus and watch those ideas co-mingle. It's quite fun! All of the nodes are running as separate processes. Some of the nodes take input and curry outputs. In this example, all of the "abstract" nodes are using the OpenAI completion models, but there's no limit to what modules we will be able to use. A few other modules besides GPT are already available in Helix, and it's very easy to write your own. You can also use the web interface to interact with multiple targets in the same session.
 
+### Project Goals
 
+The goal of the project is not to make a "virtual assistant", a Star Trek computer, or a new model outperforms humans in a certain game or task. Instead, we are interested in building a system, or a friend, or perhaps enemy, which can perceive and consider its own thoughts and external inputs, generate new thoughts based on its previous thoughts, and decide whether or not to express those thoughts. So, rather than solving a specific puzzle using embedded, _passive_ knowledge, we want to identify a potential puzzle, make a decision to try solve it, to propose solutions, evaluate outcomes, and ultimately solve it using _active_ knowledge which it did not posses before.
 
+### Implementation Details and Status
+
+Helix is implemented in Elixir and Phoenix LiveView. It works, mostly, but still relies heavily on "prompt engineering", and it can't do anything magical yet. It eats through OpenAI credits at a mean clip. It's Free Software and it's available on GitHub.
+
+I think the next steps are to run small and large-scale experiments with different graph architectures, to build more modules types for interacting with the web and computer systems, to build a robust memory storage and retreival system, and to add modules for more capabilities in different modalities, particuraly Free and Open Source ones, and for graphs to be able to fine-tune their own models and graphs on the fly.
+
+If you're interested in how it goes, please come back to this website where I'll post updates, if you're interested in playing with it yourself please check out the code on GitHub, and if you're interested in contributing, please use GitHub issues to share your ideas, experiments, and code.
 
 
 Though ideally we would be constructing our friend with a multitude of different "task modules" with which to interact with the world, there is currenly only one really good multi-modal embedding network out in the wild, CLIP, which only has two modalities, and cost rougly a million dollars to train. Though it would be exciting and interesting to create a generic-mode embedding network, that is greatly beyond both my abilities and the scope of this project, not to mention even further beyond the resources available.
