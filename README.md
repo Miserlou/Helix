@@ -156,6 +156,7 @@ end
  - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `AwaitModule`, ~~`GPTDecisionModule`~~ module.
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
+ - "Guru" example (One Ying -> A Thousand Yangs -> One Ying, etc.)
 
 ## Ideas to explore
 
