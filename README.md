@@ -104,6 +104,24 @@ digraph Daoism{
 
 Place your graphs in `./priv/graphs`.
 
+### History Syntax
+
+A simple syntax is provided for accessing historical inputs. If you a module is receiving a signal from YourModule, you can reference it as `{YourModule}`. To reference the previous signal received from that module, reference it as `{YourModule.1}`, etc.
+
+You can render the entire input/output history as `{HISTORY}`, and your can reference the input which triggered the current node execution as `{INPUT}`. This syntax is likely to expand and change.
+
+## Available Modules
+
+ - `GPTModule`
+ - `GPTDecisionModule`
+ - `LiveInputModule`
+ - `LiveOutputModule`
+ - `ClockModule`
+ - `AwaitModule`
+ - `StartModule`
+ - `PrintModule`
+ - `PassthroughModule`
+
 ## Creating Your Own Modules
 
 Creating a module is very simple. All a module must do is implement `handle_cast({:convey, event}, state)` to receive inputs from other modules, and at the end of that function call `convey(output_value, state)` to pass a message along.
@@ -140,8 +158,6 @@ end
  - Create GitHub pages blog
 
 ## Ideas to explore
-
-_XXX TODO_
 
  - Persistent memory
  - Self-embedding
