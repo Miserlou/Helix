@@ -106,7 +106,7 @@ Place your graphs in `./priv/graphs`.
 
 ### History Syntax
 
-A simple syntax is provided for accessing historical inputs. If you a module is receiving a signal from YourModule, you can reference it as `{YourModule}`. To reference the previous signal received from that module, reference it as `{YourModule.1}`, etc.
+A simple syntax is provided for accessing historical inputs. If a module is receiving a signal from YourModule, you can reference it as `{YourModule}`. To reference the previous signal received from that module, reference it as `{YourModule.1}`, etc.
 
 You can render the entire input/output history as `{HISTORY}`, and your can reference the input which triggered the current node execution as `{INPUT}`. This syntax is likely to expand and change.
 
