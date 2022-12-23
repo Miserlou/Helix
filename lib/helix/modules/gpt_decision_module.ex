@@ -18,10 +18,10 @@ defmodule Helix.Modules.GPTDecisionModule do
     value = extract_result(res)
 
     if String.contains?(value, Map.get(state, :decider, "YES")) do
-      convey(state.last_input.value, state)
+      {:noreply, convey(state.last_input.value, state)}
+    else
+      {:noreply, state}
     end
-
-    {:noreply, state}
   end
 
 end

@@ -79,3 +79,7 @@ config :openai,
   api_key: System.get_env("OPENAI_API_KEY"), # find at https://beta.openai.com/account/api-keys
   organization_key: System.get_env("OPENAI_ORG_KEY"),
   http_options: [recv_timeout: 30_000]
+
+# Bumblebee
+config :nx,
+  default_backend: EXLA.Backend

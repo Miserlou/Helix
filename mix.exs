@@ -65,8 +65,12 @@ defmodule Helix.MixProject do
       {:solid, "~> 0.14"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:uuid, "~> 1.1.8" },
-      {:colour_hash, "~> 1.0.3"}
-
+      {:colour_hash, "~> 1.0.3"},
+      {:bumblebee, "~> 0.1.2"},
+      {:exla, ">= 0.0.0"},
+      {:bumblebee, "~> 0.1.2"},
+      {:nx, "~> 0.4.1"},
+      {:axon, "~> 0.3.1"},
     ]
   end
 

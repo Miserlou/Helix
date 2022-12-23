@@ -114,6 +114,8 @@ You can render the entire input/output history as `{HISTORY}`, and your can refe
 
  - `GPTModule`
  - `GPTDecisionModule`
+ - `BBTextModule`*
+  - Uses the Bumblebee framework, but I don't have a GPU to test it properly.
  - `LiveInputModule`
  - `LiveOutputModule`
  - `ClockModule`
@@ -152,7 +154,7 @@ end
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, ~~`ClockModule`~~, ~~`OutputModule`~~, ~~`TextInputModule`~~
- - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `AwaitModule`, ~~`GPTDecisionModule`~~ module.
+ - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `AwaitModule`, ~~`GPTDecisionModule`~~, various `Bumblebee` modules.
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
  - "Guru" example (One Ying -> A Thousand Yangs -> One Ying, etc.)
