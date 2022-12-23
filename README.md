@@ -115,7 +115,7 @@ You can render the entire input/output history as `{HISTORY}`, and your can refe
  - `GPTModule`
  - `GPTDecisionModule`
  - `BBTextModule`*
-  - Uses the Bumblebee framework, but I don't have a GPU to test it properly.
+   - Uses the Bumblebee framework, but I don't have a GPU to test it properly.
  - `LiveInputModule`
  - `LiveOutputModule`
  - `ClockModule`
