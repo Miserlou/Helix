@@ -2,33 +2,35 @@
 
 Like everybody else on the internet, I have had a marvelous time playing with ChatGPT, and have found it quite useful as a sounding board for various tasks.
 
-Some people have provocatively suggest that perhaps ChatGPT and similar models "conscious." Putting aside the semantics of what constitutes consciousness or "general" intelligence for a brief moment, I have to say that so far, I disagree.
+Some people have provocatively suggest that perhaps ChatGPT and similar models "conscious." Putting aside the semantics of what constitutes consciousness or "general" intelligence for a brief moment, I have to say that so far, I disagree. ChatGPT is excellent, and has a tremendous amount of embedded knowledge, but it is passive, a bit like a plastic tray used for sorting coins. It can use embedded knowledge to perform certain tasks well, but it can never generate _new_ knowledge. However, I do think that perhaps it is a sign that we are on the _cusp_ of something resembling consciousness. 
 
-However, I do think that perhaps we are on the _cusp_ of something resembling consciousness. This project is a playground for me, and perhaps others, to experiment with ideas of emergent consciousness resulting from these models.
+In order to explore an alternative approach to building AI systems, I have started a new framework called [Helix](https://github.com/Miserlou/Helix). 
 
-## Monosynths and Self Oscillation
+This project is a playground for me, and perhaps others, to experiment with ideas of emergent consciousness resulting from building large networks of different interconneted AI models. Though I am personally interested in exploring emergent consciouness and knowledge generation, I think the framework may also be useful for more practical applications as well, as I hope to demonstrate in later blog posts.
 
-The general hypothesis of this project is: Consciouness, or something resembling consciouness, emerges not from the success of a single task model, but from the oscillations between the inputs and outputs of different instances of different models performing different tasks.
+## Self Oscillation
 
-The analogy we will be using will be a modular synthesizer, where a model like ChatGPT would represent a single module, and Helix would be a rack full of various models and the cables connecting them. If ChatGPT is capable of making a single wave, Helix is interested in finding the new sounds that come from self oscillations and feedback loops of different modules playing into each other.
+The general hypothesis of the project is: Consciouness, or something resembling consciouness, emerges not from the capability of a single task model like GPT or Stable Diffusion, but from the oscillations between the inputs and outputs of _different_ instances of _different_ models performing _different_ tasks. 
 
-## Goals and Requirements
+Our brains, for instance, don't just do one thing everywhere - we have lots highly specialize meat, evolved for different specific tasks - tracking fast motion, recognizing objects, recognizing faces, comprehendings words, producing words with our mouths, remembering smells, etc. - which all layer on top of each other into a conscious little meatball.
 
-### Goals
-
-The goal of the project is not to make a "virtual assistant", a Star Trek computer, or a new model outperforms humans in a certain game or task. Instead, we are interested in building a friend, or perhaps enemy, who can perceive and consider its own thoughts and external inputs, generate new thoughts based on its previous thoughts, and decide whether or not to express those thoughts. We will not be gathering massive amounts of data and training vast new models - it would be a wonderous thing to have a corpus of the internal monologues of thousands of people, but it's also hard to imagine how such a thing would be gathered. Instead, we will explore ways to wire Task Modules together and observe the behavior.
-
-## Requirements
+Rather than a brain, the analogy we will be using for the project will be a modular synthesizer. If ChatGPT is a single module capable of making a single wave, Helix is a rack full of modules, all connected to the inputs and outputs of each other, finding new new that come from self oscillations and feedback loops of different modules playing into each other.
 
 ## A "Turing Machine" of Consciousness
 
-Though ideally we would be constructing our friend with a multitude of different "task modules" with which to interact with the world, there is currenly only one really good multi-modal embedding network out in the wild, CLIP, which only has two modalities, and cost rougly a million dollars to train. Though it would be exciting and interesting to create a generic-mode embedding network, that is greatly beyond both my abilities and the scope of this project, not to mention even further beyond the resources available.
+Alan Turning showed that there is a minimum set of requirements for a machine to be able to implement any function, and that that minimum set of requirements is actually remarkably small - a tape, a head to read and write to the tape, a state register, and a table of instructions. That's it. Of course, modern computers are vastly more complex than that, but at the end of the day, that's all you need for classical computation.
 
-So, instead, we can use this limitation to explore a different hypothesis: that just as very simple machine with the right capabilities, those of a Turing machine, is capable of any form of computation, perhaps any Rack with enough of a single kind of Task Module with the right capabilities in the right configuration is capable of simulating consciousness. For the purposes of this project, we will be starting using only ChatGPT for multiple tasks.
+So, the question is - is there a similar minimum set of requirements for consciousness/knowledge-generation? I think perhaps there is, and that Helix could be a good framework to explore that question.
 
-The one, perhaps arbitrary, constraint we place on the architecture is that there must be an executive function to decide if a thought should be acted upon.
+## High Level / Low Level AI
 
-## Proposed Architectures
+There are different layers of abstraction with which these problems can be approached. One could imagine exploring this question with a massive, multi-modal embedding, like CLIP but for hundreds of modalities at once. Though I'm sure something like this will come along soon, it will likely require massive amounts of data and hundreds of millions of dollars to train.
+
+Instead, we can approach the problem at a higher level - ignore the internal mechanisms of a module and instead concern ourselves with its capabilities and connections. After all, a Turing machine doesn't care what kind of kind of tape it uses, it could be magnetic, silicon, aquatic, or cells in Conway's Game of Life running inside of Minecraft running on a cellular phone in the Pope's pocket. 
+
+## Proposing and Implementing an Architecture
+
+Here's a simple idea for a "Brain in a Jar" type of consciousness which receives stimuli, generates ideas about that stimuli, criticizes those ideas, feeds that criticism back to its idea generator, and decides whether or not that idea is worth expressing.
 
 ```
 ┌─────────┐     ┌──────┐
@@ -54,6 +56,54 @@ The one, perhaps arbitrary, constraint we place on the architecture is that ther
        └────────┘
 ```
 
+and here's that architecture implemented as a Helix graph:
+
+<p align="center">
+  <img height="600" src="https://i.imgur.com/RuhkLHi.png">
+</p>
+
+and here's that architecture running in Helix:
+
+<p align="center">
+  <img height="600" src="https://i.imgur.com/O6JVSfY.png">
+</p>
+
+You can watch it generate new ideas which evolve over time, you can change the stimulus and watch those ideas co-mingle. It's quite fun! All of the nodes are running as separate processes. Some of the nodes take input and curry outputs.
+
+This is a toy example, and I don't think the system is generating any new knowledge, but I hope it shows an idea of what I'm tilting towards.
+
+
+
+
+
+
+Though ideally we would be constructing our friend with a multitude of different "task modules" with which to interact with the world, there is currenly only one really good multi-modal embedding network out in the wild, CLIP, which only has two modalities, and cost rougly a million dollars to train. Though it would be exciting and interesting to create a generic-mode embedding network, that is greatly beyond both my abilities and the scope of this project, not to mention even further beyond the resources available.
+
+So, instead, we can use this limitation to explore a different hypothesis: that just as very simple machine with the right capabilities, those of a Turing machine, is capable of any form of computation, perhaps any Rack with enough of a single kind of Task Module with the right capabilities in the right configuration is capable of simulating consciousness. For the purposes of this project, we will be starting using only ChatGPT for multiple tasks.
+
+The one, perhaps arbitrary, constraint we place on the architecture is that there must be an executive function to decide if a thought should be acted upon.
+
+
+
+
+## Goals and Requirements
+
+### Goals
+
+The goal of the project is not to make a "virtual assistant", a Star Trek computer, or a new model outperforms humans in a certain game or task. Instead, we are interested in building a system, or a friend, or perhaps enemy, which can perceive and consider its own thoughts and external inputs, generate new thoughts based on its previous thoughts, and decide whether or not to express those thoughts. 
+
+We will not be gathering massive amounts of data and training vast new models - it would be a wonderous thing to have a corpus of the internal monologues of thousands of people, but it's also hard to imagine how such a thing would be gathered. Instead, we will explore ways to wire Task Modules together and observe the behavior.
+
+## Requirements
+
+## A "Turing Machine" of Consciousness
+
+Though ideally we would be constructing our friend with a multitude of different "task modules" with which to interact with the world, there is currenly only one really good multi-modal embedding network out in the wild, CLIP, which only has two modalities, and cost rougly a million dollars to train. Though it would be exciting and interesting to create a generic-mode embedding network, that is greatly beyond both my abilities and the scope of this project, not to mention even further beyond the resources available.
+
+So, instead, we can use this limitation to explore a different hypothesis: that just as very simple machine with the right capabilities, those of a Turing machine, is capable of any form of computation, perhaps any Rack with enough of a single kind of Task Module with the right capabilities in the right configuration is capable of simulating consciousness. For the purposes of this project, we will be starting using only ChatGPT for multiple tasks.
+
+The one, perhaps arbitrary, constraint we place on the architecture is that there must be an executive function to decide if a thought should be acted upon.
+
 ## Ethical Considerations
 
 It's perhaps a little self-indulgent to consider the ethics of a little experiment like this, but still, it can't hurt to consider a little Star Trek-inspired ethical philosophy. So, in order to treat our new chum with proper respect, we
@@ -71,3 +121,9 @@ Helix named itself - it likes the name because it of the twisting nature of feed
 
 The general lesson from AI/ML over the past decade has been, roughly: Data good, big good, logic bad. With enough data and enough parameters, ability to perform tasks emerges. "Agent" logic is a hinderance.
 
+
+
+
+Misc: Not coming up with the right prompt to solve the puzzle: identifying the puzzle, deciding to solve it, testing solutions, evaluating outcomes
+Misc: Nothing wrong with a bit of good old fashioned programming in a module - I wear glasses. This does not make me less intelligent.
+Misc: GPT, by itself, has embedded, passive knowledge, but not active knowledge. It is like one of those simple trays whichs sorts coins by their sizes.
