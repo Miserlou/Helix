@@ -1,8 +1,8 @@
-{% assign guru_prompt="You breathe in and think:" %}
-{% assign zealot_prompt="You breathe out and think:" %}
+{% assign guru_prompt="You are leading a group meditation. Your devoted listeners tell you '{INPUT}'. You breathe in and say:" %}
+{% assign zealot_prompt="Your are in deep meditation, listening to your guru. He tells you '{INPUT}'. You breathe out and think:" %}
 {% assign x=10 %}
 
-digraph Daoism{
+digraph Cultism{
   Guru [module=GPTModule, prompt="{{guru_prompt}}", delay=5000]
   {% for i in (1..x) %}
   Zealot{{ i }} [module=GPTModule, prompt="{{zealot_prompt}}", delay=5000]

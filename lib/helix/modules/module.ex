@@ -34,7 +34,7 @@ defmodule Helix.Modules.Module do
           GenServer.cast(get_pid_for_name(target), {:convey, event})
           event_acc ++ [event]
         end )
-        %{state | output_history: state.output_history ++ [sent_events]}
+        %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
       end
 
       ##
@@ -49,7 +49,8 @@ defmodule Helix.Modules.Module do
         input_history_for_source = Map.get(state.input_history, event.source_id, [])
         updated_input_history_for_source = input_history_for_source ++ [event]
         updated_input_history = Map.put(state.input_history, event.source_id, updated_input_history_for_source)
-        %{state | input_history: updated_input_history, last_input: event}
+        updated_input_sources = Map.put(state.input_sources, event.source_id, event)
+        %{state | input_history: updated_input_history, last_input: event, input_sources: updated_input_sources}
       end
 
       defoverridable [init: 1]
