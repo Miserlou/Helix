@@ -167,6 +167,7 @@ end
  - Multi-modal stimuli
  - Self-Observing Solving a Puzzle
  - Recursive problem-solving
+ - Beat the HF GPT detector
 
 ## Contributing
 

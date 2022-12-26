@@ -1,0 +1,21 @@
+{% assign guru_prompt="You breathe in and think:" %}
+{% assign zealot_prompt="You breathe out and think:" %}
+{% assign x=10 %}
+
+digraph Daoism{
+  Guru [module=GPTModule, prompt="{{guru_prompt}}", delay=5000]
+  {% for i in (1..x) %}
+  Zealot{{ i }} [module=GPTModule, prompt="{{zealot_prompt}}", delay=5000]
+  {% endfor %}
+  Await [module=AwaitModule]
+  Live [module=LiveOutputModule]
+  Start [module=StartModule, delay=2000, message="Om."]
+
+  Start -> Guru
+  {% for i in (1..x) %}
+  Guru -> Zealot{{ i }}
+  Zealot{{ i }} -> Await
+  {% endfor %}
+  Await -> Guru
+  Guru -> Live
+}

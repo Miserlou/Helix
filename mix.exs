@@ -68,7 +68,6 @@ defmodule Helix.MixProject do
       {:colour_hash, "~> 1.0.3"},
       {:bumblebee, "~> 0.1.2"},
       {:exla, ">= 0.0.0"},
-      {:bumblebee, "~> 0.1.2"},
       {:nx, "~> 0.4.1"},
       {:axon, "~> 0.3.1"},
     ]
