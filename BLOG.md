@@ -1,14 +1,16 @@
 # Engineering Consciousness
 
-_I'm launching a new startup! It's not really related to the project described here, but it'd be great if you could [check out Hibox here](https://hibox.live)!_
+_I'm launching a new startup! It's not really related to the project described here, but if you've got a business and you want to make more money, [check out Hibox here](https://hibox.live)!_
 
-Like everybody else on the internet, I have had a marvelous time playing with ChatGPT, and have found it quite useful as a spring board for all sorts of creative tasks.
+Like everybody else on the internet, I have had a marvelous time playing with ChatGPT over the past week. I've found it quite useful as a springboard for all sorts of creative tasks, and it's the first time in a long time that I think we're on the _cusp_ of a transformative technological change. I've started a new project called [Helix](https://github.com/Miserlou/Helix) to explore some alternative ideas for how that change might emerge. It's like a modular synthesizer for AI task modules, and it can do some neat stuff already.
 
-Some people have provocatively suggest that perhaps ChatGPT and similar models "conscious." Putting aside the semantics of what constitutes consciousness or "general" intelligence for a brief moment, I have to say that so far, I disagree. ChatGPT is excellent, and has a tremendous amount of embedded knowledge, but it is passive, a bit like a plastic tray used for sorting coins. It can use embedded knowledge to perform certain tasks well, but it can never generate _new_ knowledge. However, I do think that perhaps it is a sign that we are on the _cusp_ of something resembling consciousness. 
+## Passive and Active Knowledge
 
-In order to explore an alternative approach to building AI systems, I have started a new framework called [Helix](https://github.com/Miserlou/Helix). 
+Some people have provocatively suggest that ChatGPT and similar models are "conscious." Putting aside the semantics of what constitutes consciousness or "general" intelligence for a brief moment, I have to say that, so far, I disagree. 
 
-This project is a playground for me, and perhaps others, to experiment with ideas of emergent consciousness resulting from building large networks of different interconneted AI models. Though I am personally interested in exploring emergent consciouness and knowledge generation, I think the framework may also be useful for more practical applications as well, as I hope to demonstrate in later blog posts.
+ChatGPT has a tremendous amount of embedded knowledge, but it is only _passive knowledge_, a bit like a plastic tray used for sorting coins. It can use that embedded knowledge to perform certain tasks very well, but it can never generate _new_ knowledge. I think creating new knowledge is the real signifier of consciousness, but that's an area of AI research that remains relatively unexplored.
+
+So, in order to explore an alternative approach to building AI systems, I have started a new framework called [Helix](https://github.com/Miserlou/Helix). The project is a playground for me, and hopefully others, to experiment with ideas of emergent consciousness resulting from building large networks of different interconneted AI models. Though I am personally interested in exploring emergent consciouness and knowledge generation, I think the framework may also be useful for more practical applications as well, as I hope to demonstrate in later blog posts.
 
 ## Self Oscillation
 
@@ -86,4 +88,4 @@ Helix is implemented in Elixir and Phoenix LiveView. It works, mostly, but still
 
 I think the next steps are to run small and large-scale experiments with different graph architectures, to build more modules types for interacting with the web and computer systems, to build a robust memory storage and retreival system, and to add modules for more capabilities in different modalities, particuraly Free and Open Source ones, and for graphs to be able to fine-tune their own models and graphs on the fly.
 
-If you're interested in how it goes, please come back to this website where I'll post updates, if you're interested in playing with it yourself please check out the code on GitHub, and if you're interested in contributing, please use GitHub issues to share your ideas, experiments, and code.
+If you're interested in how it goes, please come back to this website where I'll post updates, if you're interested in playing with it yourself [please check out the code on GitHub](https://github.com/Miserlou/Helix), and if you're interested in contributing, please use GitHub issues to share your ideas, experiments, and code.
