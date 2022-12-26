@@ -1,6 +1,8 @@
 # Engineering Consciousness
 
-Like everybody else on the internet, I have had a marvelous time playing with ChatGPT, and have found it quite useful as a sounding board for various tasks.
+_I'm launching a new startup! It's not really related to the project described here, but it'd be great if you could [check out Hibox here](https://hibox.live)!_
+
+Like everybody else on the internet, I have had a marvelous time playing with ChatGPT, and have found it quite useful as a spring board for all sorts of creative tasks.
 
 Some people have provocatively suggest that perhaps ChatGPT and similar models "conscious." Putting aside the semantics of what constitutes consciousness or "general" intelligence for a brief moment, I have to say that so far, I disagree. ChatGPT is excellent, and has a tremendous amount of embedded knowledge, but it is passive, a bit like a plastic tray used for sorting coins. It can use embedded knowledge to perform certain tasks well, but it can never generate _new_ knowledge. However, I do think that perhaps it is a sign that we are on the _cusp_ of something resembling consciousness. 
 
