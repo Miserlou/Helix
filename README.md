@@ -9,6 +9,12 @@
 [![Hex.pm](https://img.shields.io/hexpm/v/Helix.svg)](https://hex.pm/packages/helix)
 [![WIP](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/Miserlou/Helix)
 
+### Supported By
+
+[![Hibox](https://i.imgur.com/7ZCUxIX.png)](https://hibox.live)
+
+### About
+
 **Helix** is a framework for building multi-model, feedback-looping AI systems. It's like a **modular synthesizer** for **AI**. 
 
 Read more about the concept [in this blog post](). In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
