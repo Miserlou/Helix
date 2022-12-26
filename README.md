@@ -11,7 +11,7 @@
 
 ### Supported By
 
-[![Hibox](https://i.imgur.com/7ZCUxIX.png)](https://hibox.live)
+[![Hibox](https://i.imgur.com/V75BH7X.png)](https://hibox.live)
 
 ### About
 
