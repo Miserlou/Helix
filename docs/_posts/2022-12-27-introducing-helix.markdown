@@ -5,6 +5,10 @@ date:   2022-12-27 17:13:07 +0100
 categories: misc 
 ---
 
+<p align="center">
+  <img width="400" height="400" src="https://i.imgur.com/XD1HifC.png">
+</p>
+
 # Engineering Consciousness
 
 _I'm launching a new startup! It's not really related to the project described here, but if you've got a business and you want to make more money, [check out Hibox here](https://hibox.live)!_
