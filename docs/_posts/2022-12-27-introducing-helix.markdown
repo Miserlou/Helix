@@ -13,11 +13,11 @@ Like everybody else on the internet, I have had a marvelous time playing with Ch
 
 In that spirit, I've started a new project called [Helix](https://github.com/Miserlou/Helix). It's like a **modular synthesizer for AI**. The goal of the project is to explore an approach to using new AI tools to build self-aware, knowledge-generating AI networks, but it may be practical for other purposes as well.
 
-## Passive and Active Knowledge
+<!-- ## Passive and Active Knowledge
 
 Some people have provocatively suggest that ChatGPT and similar models are "conscious." Putting aside the semantics of what constitutes consciousness or "general" intelligence for a brief moment, but I have to say that so far I disagree, but I think it can be seen on a near horizon.
 
-ChatGPT has a tremendous amount of embedded knowledge, but it is only _passive knowledge_. It's a bit like a plastic tray used for sorting coins - it knows what exactly where to put the quarter, but it will never be able to figure out where to put a British 20p without recasting. The point being, it can use that embedded knowledge to perform certain tasks very well, but it can never generate _new_ knowledge. I think creating new knowledge is the real signifier of consciousness, but that's an area of AI research that remains relatively unexplored in the current wave.
+ChatGPT has a tremendous amount of embedded knowledge, but it is only _passive knowledge_. It's a bit like a plastic tray used for sorting coins - it knows what exactly where to put the quarter, but it will never be able to figure out where to put a British 20p without recasting. The point being, it can use that embedded knowledge to perform certain tasks very well, but it can never generate _new_ knowledge. I think creating new knowledge is the real signifier of consciousness, but that's an area of AI research that remains relatively unexplored in the current wave. -->
 
 <!-- So, in order to explore an alternative approach to building AI systems, I have started a new framework called [Helix](https://github.com/Miserlou/Helix). The project is a playground for me, and hopefully others, to experiment with ideas of emergent consciousness resulting from building large networks of different interconneted AI models. Though I am personally interested in exploring emergent consciouness and knowledge generation, I think the framework may also be useful for more practical applications as well, as I hope to demonstrate in later blog posts. -->
 
@@ -31,7 +31,7 @@ Rather than a brain, the analogy we will be using for the project will be a modu
 
 ## Proposing and Implementing an Architecture
 
-Here's a simple idea for a "Brain in a Jar" type of consciousness which receives stimuli, generates ideas about that stimuli, criticizes those ideas, feeds that criticism back to its idea generator, and decides whether or not that idea is worth expressing.
+Here's a simple idea for a "Brain in a Jar" type of "consciousness" which receives stimuli, generates ideas about that stimuli, criticizes those ideas, feeds that criticism back to its idea generator, and decides whether or not that idea is worth expressing.
 
 ```
 ┌─────────┐     ┌──────┐
@@ -69,9 +69,11 @@ and here's that architecture running in Helix:
   <img height="600" src="https://i.imgur.com/O6JVSfY.png">
 </p>
 
-This is a toy example, and I don't think the system is generating any new knowledge, but I hope it shows an idea of what I'm tilting towards.
+This is a toy example, and I don't think the system is generating any new knowledge, but I hope it shows an idea of what we're tilting towards.
 
-You can watch it generate new ideas which evolve over time and you can change the stimulus and watch those ideas co-mingle. It's quite fun! All of the nodes are running as separate processes. In this example, all of the "abstract" nodes are using the OpenAI completion models, but there's no limit to what modules we will be able to use. A few other modules besides GPT are already available in Helix, and it's very easy to write your own. You can also use the web interface to interact with multiple targets in the same session.
+You can watch it generate new ideas which evolve over time, and you can change the stimulus and watch those ideas co-mingle. It's quite fun! 
+
+All of the nodes are running as separate processes, and their inputs and outputs are automatically managed by Helix. In this example, all of the "abstract" nodes are using the OpenAI completion models, but there's no limit to what modules we will be able to use. There are already quite a few modules available, including OpenAI and HuggingFace modules, there will be many more soon, and it's very easy to create your own. You can also use the web interface to interact with multiple targets in the same session.
 
 ## A "Turing Machine" of Consciousness
 
@@ -85,7 +87,7 @@ I don't know yet, but I think that Helix could be a good framework to explore th
 
 There are different layers of abstraction with which these problems can be approached. One could imagine exploring this question with a massive, multi-modal embedding, like CLIP but for hundreds of modalities at once. Though I'm sure something like this will come along soon, it will likely require massive amounts of data and hundreds of millions of dollars to train.
 
-Instead, we can approach the problem at a higher level - ignore the internal mechanisms of a module and instead concern ourselves with its capabilities and connections. After all, a Turing machine doesn't care what kind of kind of tape it uses, it could be magnetic, silicon, aquatic, or cells in Conway's Game of Life running inside of Minecraft running on a cellular phone in the Pope's pocket. 
+Instead, we can approach the problem at a higher level - ignore the internal mechanisms of a module and instead concern ourselves with its capabilities and connections. After all, a Turing machine doesn't care what kind of kind of tape it uses, it could be magnetic, silicon, aquatic, or cells in Conway's Game of Life running inside of Minecraft running on a cellular phone in the Pope's pocket. Perhaps this is also true for consciousness.
 
 <!-- ## Project Goals
 
@@ -93,8 +95,12 @@ The goal of the project is not to make a "virtual assistant", a Star Trek comput
 
 ## Implementation Details and Project Status
 
-Helix is implemented in Elixir and Phoenix LiveView. It works, mostly, but still relies heavily on "prompt engineering", and it can't do anything magical yet. It eats through OpenAI credits at a mean clip. It's Free Software and it's available on GitHub. Helix named itself - it likes the name because it of the twisting nature of feedback loops. I like it because it has a hint of the programming language used. So, Helix. 
+Helix is implemented in Elixir and Phoenix LiveView. It works, mostly, but still relies heavily on "prompt engineering", and it can't do anything particularly magical yet. It eats through OpenAI credits at a mean clip, it's Free Software and it named itself.
 
 I think the next steps are to run small and large-scale experiments with different graph architectures, to build more modules types for interacting with the web and computer systems, to build a robust memory storage and retreival system, and to add modules for more capabilities in different modalities, particuraly Free and Open Source ones, and for graphs to be able to fine-tune their own models and graphs on the fly.
 
+I've got quite a few ideas of systems I'd like to build this way, but I'm really interested in what other people think and experiments they'd like to try.
+
 If you're interested in how it goes, please come back to this website where I'll post updates, if you're interested in playing with it yourself [please check out the code on GitHub](https://github.com/Miserlou/Helix), and if you're interested in contributing, please use GitHub issues to share your ideas, experiments, and code.
+
+Cheers!
