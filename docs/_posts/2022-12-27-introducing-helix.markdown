@@ -23,9 +23,9 @@ ChatGPT has a tremendous amount of embedded knowledge, but it is only _passive k
 
 ## Self Oscillation
 
-The general hypothesis of the project is: Consciouness, or something resembling consciouness, emerges not from the capability of a single task model like GPT or Stable Diffusion, but from the oscillations between the inputs and outputs of _different_ instances of _different_ models performing _different_ tasks. 
+The general hypothesis of the project is: Consciousness, or something resembling consciousness, emerges not from the capability of a single task model like GPT or Stable Diffusion, but from the oscillations between the inputs and outputs of _different_ instances of _different_ models performing _different_ tasks. 
 
-Our brains, for instance, don't just do one thing everywhere - we have lots highly specialized meat, refined by evolution for different specific tasks - tracking fast motion, recognizing objects, recognizing faces, comprehendings words, producing words with our mouths, remembering smells, etc. - which all layer on top of each other into a conscious little meatball.
+Our brains, for instance, don't just do one thing everywhere - we have lots highly specialized meat, refined by evolution for different specific tasks - tracking fast motion, recognizing objects, recognizing faces, comprehending words, producing words with our mouths, remembering smells, etc. - which all layer on top of each other into a conscious little meatball.
 
 Rather than a brain, the analogy we will be using for the project will be a modular synthesizer. If ChatGPT is a single module capable of making a single wave, Helix is a rack full of modules, all connected to the inputs and outputs of each other, finding new sounds that come from self oscillations and feedback loops of different modules playing into each other.
 
@@ -101,7 +101,7 @@ The goal of the project is not to make a "virtual assistant", a Star Trek comput
 
 Helix is implemented in Elixir and Phoenix LiveView. It works, mostly, but still relies heavily on "prompt engineering", and it can't do anything particularly magical yet. It eats through OpenAI credits at a mean clip, it's Free Software and it named itself.
 
-I think the next steps are to run small and large experiments with different graph architectures, to build more modules types for interacting with the web and computer systems, to build a robust memory storage and retreival system, and to add modules for more capabilities in different modalities, particuraly Free and Open Source ones, and for graphs to be able to fine-tune their own models and graphs on the fly.
+I think the next steps are to run small and large experiments with different graph architectures, to build more modules types for interacting with the web and computer systems, to build a robust memory storage and retrieval system, and to add modules for more capabilities in different modalities, particularly Free and Open Source ones, and for graphs to be able to fine-tune their own models and graphs on the fly.
 
 I've got quite a few ideas of systems I'd like to build this way, but I'm really interested in what other people think and experiments they'd like to try.
 
