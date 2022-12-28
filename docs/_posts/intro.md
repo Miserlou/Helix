@@ -1,7 +1,8 @@
 ---
 layout: post
-title: "Test"
-categories: misc
+title:  "Introducing Helix"
+date:   2022-12-27 17:13:07 +0100
+categories: misc 
 ---
 
 # Engineering Consciousness
