@@ -83,10 +83,10 @@ Notice that if your graph has multiple LiveInput targets, your can choose which 
 
 Graphs are described a in DOT format. A very simple GPT feedback graph could be defined like so:
 
-```dot
+```solid
 digraph Daoism{
   Ying [module=GPTModule, prompt="Breathe in."]
-  Ying [module=GPTModule, prompt="Breathe out."]
+  Yang [module=GPTModule, prompt="Breathe out."]
 
   Ying -> Yang
   Yang -> Ying
@@ -95,13 +95,13 @@ digraph Daoism{
 
 However, DOT is quite limited by itself, so Graph files are actually Liquid templates used to create a DOT file. This makes it much easier to use variable assigns and loops, like so:
 
-```dot
+```solid
 {% assign ying_prompt="Your last thought was '{Yang}'. You breathe in and think: " %}
 {% assign yang_prompt="Your last thought was '{Ying}'. You breathe out and think: " %}
 
 digraph Daoism{
   Ying [module=GPTModule, prompt="{{ying_prompt}}"]
-  Ying [module=GPTModule, prompt="{{yang_prompt}}"]
+  Yang [module=GPTModule, prompt="{{yang_prompt}}"]
 
   Ying -> Yang
   Yang -> Ying
@@ -160,7 +160,7 @@ end
  - Logging, Saving and Restoring
  - Use DynamicSupervisor
  - More modules: `MixModule`, ~~`ClockModule`~~, ~~`OutputModule`~~, ~~`TextInputModule`~~
- - More modules: `ImageInputModule`, `StableDiffusionModule`, `HuggingFaceModule`, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, `AwaitModule`, ~~`GPTDecisionModule`~~, various `Bumblebee` modules.
+ - More modules: `ImageInputModule`, `StableDiffusionModule`, ~~`HuggingFaceModule`~~, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, ~~`AwaitModule`~~, ~~`GPTDecisionModule`~~, various `Bumblebee` modules.
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
  - ~~"Guru" example (One Ying -> A Thousand Yangs -> One Ying, etc.)~~
