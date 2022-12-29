@@ -6,7 +6,7 @@
 ### A Framework for Engineering Consciousness
 
 [![GitHub](https://img.shields.io/github/stars/Miserlou/Helix?style=social)](https://github.com/Miserlou/Helix)
-[![Hex.pm](https://img.shields.io/hexpm/v/Helix.svg)](https://hex.pm/packages/helix)
+[![Hex.pm](https://img.shields.io/hexpm/v/helix.svg)](https://hex.pm/packages/helix)
 [![WIP](https://img.shields.io/badge/status-alpha-yellow)](https://github.com/Miserlou/Helix)
 
 ### Supported By
