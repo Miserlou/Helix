@@ -175,6 +175,8 @@ end
  - Recursive problem-solving
  - Beat the HF GPT detector
  - Rat in A Maze graph
+ - Brainfuck Interpreter
+   - This will require a cludge, since getting the character of a string at an index is not possible with pure OAI.
 
 ## Contributing
 
