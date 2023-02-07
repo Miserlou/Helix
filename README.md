@@ -161,6 +161,7 @@ end
  - Use DynamicSupervisor
  - More modules: `MixModule`, ~~`ClockModule`~~, ~~`OutputModule`~~, ~~`TextInputModule`~~
  - More modules: `ImageInputModule`, `StableDiffusionModule`, ~~`HuggingFaceModule`~~, `ImageOutputModule`, `WebSearchModule`, `WebExtractTextModule`, `UnixModule`, `GenModuleModule`, ~~`AwaitModule`~~, ~~`GPTDecisionModule`~~, various `Bumblebee` modules.
+ - More more modules: `SaveFileModule`, `LoadFileModule`  
  - Refactor modules names.. don't need Module
  - Create GitHub pages blog
  - ~~"Guru" example (One Ying -> A Thousand Yangs -> One Ying, etc.)~~
@@ -177,6 +178,8 @@ end
  - Rat in A Maze graph
  - Brainfuck Interpreter
    - This will require a cludge, since getting the character of a string at an index is not possible with pure OAI.
+ - Computer Romance
+   - Two 'Hers' in a relationship, where the feelings towards each other are based on a constantly-updating synopsis injected into their own prompts.
 
 ## Contributing
 
