@@ -32,7 +32,9 @@ defmodule Helix.Graph do
   end
 
   @spec instantiate_nodes(any) :: list
-  def instantiate_nodes(nodes) do
+  def instantiate_nodes(nodes, env \\ %{}) do
+
+    IO.inspect("inst")
 
     istates = for {id, node} <- nodes do
       module = get_module_for_name(node.attrs["module"])
@@ -47,6 +49,8 @@ defmodule Helix.Graph do
         |> Map.put(:module_name, module)
     end
 
+    IO.inspect("shlorp")
+
     # XXX: Okay, I know this has bad complexity, I don't care, I don't work for you.
     # PRs welcome.
     istates = Enum.reduce(istates, istates, fn state, new_states ->
@@ -57,9 +61,21 @@ defmodule Helix.Graph do
         if Enum.member?(has_as_input, jstate), do: %{jstate | input_sources: Map.put(jstate.input_sources, state.id, nil)}, else: jstate end)
     end)
 
+    IO.inspect("istates")
+
+    # Sprinkle env
+    istates = Enum.map(istates, fn state -> Map.merge(state, env) end)
+
     for state <- istates do
+      try do
+        # XXX https://thoughtbot.com/blog/how-to-start-processes-with-dynamic-names-in-elixir
         {:ok, pid} = GenServer.start_link(state.module_name, state)
         :ets.insert(:pids, {state.id, pid})
+      catch
+        x, y ->
+          IO.inspect(x)
+          IO.inspect(y)
+      end
     end
   end
 

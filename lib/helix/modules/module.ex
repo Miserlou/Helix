@@ -23,9 +23,26 @@ defmodule Helix.Modules.Module do
       end
 
       def convey(value, state) do
+
         sent_events = Enum.reduce(state.targets, [], fn target, event_acc ->
           event = %{
             type: :text,
+            value: value,
+            source_id: state.id,
+            message_id: UUID.uuid4(),
+            timestamp: :os.system_time(:milli_seconds)
+          }
+          GenServer.cast(get_pid_for_name(target), {:convey, event})
+          event_acc ++ [event]
+        end )
+        %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
+      end
+
+      def convey_img(value, state) do
+
+        sent_events = Enum.reduce(state.targets, [], fn target, event_acc ->
+          event = %{
+            type: :img,
             value: value,
             source_id: state.id,
             message_id: UUID.uuid4(),
@@ -51,6 +68,16 @@ defmodule Helix.Modules.Module do
         updated_input_history = Map.put(state.input_history, event.source_id, updated_input_history_for_source)
         updated_input_sources = Map.put(state.input_sources, event.source_id, event)
         %{state | input_history: updated_input_history, last_input: event, input_sources: updated_input_sources}
+      end
+
+      def create_error_event(error, source_id) do
+        event = %{
+          type: :error,
+          value: Kernel.inspect(error),
+          source_id: source_id,
+          message_id: UUID.uuid4(),
+          timestamp: :os.system_time(:milli_seconds)
+        }
       end
 
       defoverridable [init: 1]

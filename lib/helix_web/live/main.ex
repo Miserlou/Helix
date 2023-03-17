@@ -3,6 +3,7 @@ defmodule HelixWeb.MainLive do
 
   alias Helix.Graph
 
+  require Dotx
   require UUID
 
   @impl true
