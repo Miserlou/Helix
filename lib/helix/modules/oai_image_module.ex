@@ -5,6 +5,7 @@ defmodule Helix.Modules.OAIImageModule do
 
   def handle_cast({:convey, event}, state) do
 
+    ui_event(state)
     state = update_input_history(state, event)
     size_x = Map.get(state, :size_x, "256")
     size_y = Map.get(state, :size_y, "256")

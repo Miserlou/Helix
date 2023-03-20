@@ -8,11 +8,13 @@ defmodule Helix.Modules.StartModule do
   end
 
   def handle_info(:start, state) do
+    ui_event(state)
     convey(state.message, state)
     {:noreply, state}
   end
 
   def handle_cast({:convey, _event}, state) do
+    ui_event(state)
     {:noreply, state}
   end
 

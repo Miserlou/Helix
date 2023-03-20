@@ -54,6 +54,19 @@ defmodule Helix.Modules.Module do
         %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
       end
 
+      def ui_event(state, type \\ :flash, data \\ nil) do
+        AistudioWeb.Endpoint.broadcast(
+          "LiveModule",
+          "ui_event",
+          %{
+            type: type,
+            data: data,
+            node_id: state[:ui_node_id]
+          }
+        )
+
+      end
+
       ##
       # Utilities
       ##

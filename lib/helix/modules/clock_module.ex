@@ -8,12 +8,14 @@ defmodule Helix.Modules.ClockModule do
   end
 
   def handle_info(:start, state) do
+    convey("Tick #{:os.system_time(:millisecond)}", state)
+    ui_event(state)
     Process.send_after(self(), :start, String.to_integer(state.every))
-    convey(state.message, state)
     {:noreply, state}
   end
 
   def handle_cast({:convey, _event}, state) do
+    ui_event(state)
     {:noreply, state}
   end
 

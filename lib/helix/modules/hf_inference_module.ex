@@ -3,10 +3,8 @@ defmodule Helix.Modules.HFInferenceModule do
   use Helix.Modules.Module
   alias HTTPoison
   alias Jason
-
   def handle_cast({:convey, event}, state) do
-
-    IO.inspect("Inferencing..")
+    ui_event(state)
 
     model = Map.get(state, :model, "")
     token = Map.get(state, :HF_INFERENCE_TOKEN, "hf_REPLACE_ME")

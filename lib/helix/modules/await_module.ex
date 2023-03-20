@@ -4,6 +4,7 @@ defmodule Helix.Modules.AwaitModule do
   import Helix.Modules.GPTUtils
 
   def handle_cast({:convey, event}, state) do
+    ui_event(state)
 
     # If have new input from all sources, convey
     # Else, only update local state

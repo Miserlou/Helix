@@ -65,6 +65,24 @@ alias Helix.Modules.StartModule
           "Input"
         ]
       },
+      "GETModule": %{
+        "display_name": "GET",
+        "category": "Web",
+        "module": "Helix.Modules.GETModule",
+        "options": [
+          %{
+            "name": "url",
+            "type": "InputOption",
+            "default": ""
+          },
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
       "StartModule": %{
         "display_name": "Start",
         "category": "Control",

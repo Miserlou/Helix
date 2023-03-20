@@ -34,12 +34,10 @@ defmodule Helix.Graph do
   @spec instantiate_nodes(any) :: list
   def instantiate_nodes(nodes, env \\ %{}) do
 
-    IO.inspect("inst")
-
     istates = for {id, node} <- nodes do
       module = get_module_for_name(node.attrs["module"])
       initial_state = Map.drop(node.attrs, ["edges_from", "graph"])
-        |> Map.new(fn {k, v} -> {String.to_existing_atom(k), v} end)
+        |> Map.new(fn {k, v} -> {String.to_atom(k), v} end) # XXX: to_existing_atom badargs here, no idea why
         |> Map.put(:id, node.id |> Enum.at(0))
         |> Map.put(:targets, get_targets_for_node(node))
         |> Map.put(:input_sources, %{})
@@ -48,8 +46,6 @@ defmodule Helix.Graph do
         |> Map.put(:last_input, nil)
         |> Map.put(:module_name, module)
     end
-
-    IO.inspect("shlorp")
 
     # XXX: Okay, I know this has bad complexity, I don't care, I don't work for you.
     # PRs welcome.
@@ -60,8 +56,6 @@ defmodule Helix.Graph do
       Enum.map(new_states, fn jstate ->
         if Enum.member?(has_as_input, jstate), do: %{jstate | input_sources: Map.put(jstate.input_sources, state.id, nil)}, else: jstate end)
     end)
-
-    IO.inspect("istates")
 
     # Sprinkle env
     istates = Enum.map(istates, fn state -> Map.merge(state, env) end)

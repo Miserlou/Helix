@@ -3,6 +3,7 @@ defmodule Helix.Modules.LiveOutputModule do
   use Helix.Modules.Module
 
   def handle_cast({:convey, event}, state) do
+    ui_event(state)
     AistudioWeb.Endpoint.broadcast(
       "LiveModule",
       "convey",
