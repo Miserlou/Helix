@@ -5,11 +5,10 @@ defmodule Helix.Modules.LiveOutputModule do
   def handle_cast({:convey, event}, state) do
     ui_event(state)
     AistudioWeb.Endpoint.broadcast(
-      "LiveModule",
+      "LiveModule_#{state.graph_id}",
       "convey",
       event
     )
-    IO.inspect("Broadcast?")
     {:noreply, state}
   end
 

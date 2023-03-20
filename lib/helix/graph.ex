@@ -2,6 +2,7 @@ defmodule Helix.Graph do
 
   require Dotx
   require Solid
+  alias Helix.GraphSupervisor
 
   def load_graph(path) do
 
@@ -32,19 +33,25 @@ defmodule Helix.Graph do
   end
 
   @spec instantiate_nodes(any) :: list
-  def instantiate_nodes(nodes, env \\ %{}) do
+  def instantiate_nodes(nodes, env \\ %{}, graph_id \\ nil) do
+
+    gid = case graph_id do
+      nil -> UUID.uuid4()
+      _ -> graph_id
+    end
 
     istates = for {id, node} <- nodes do
       module = get_module_for_name(node.attrs["module"])
       initial_state = Map.drop(node.attrs, ["edges_from", "graph"])
         |> Map.new(fn {k, v} -> {String.to_atom(k), v} end) # XXX: to_existing_atom badargs here, no idea why
-        |> Map.put(:id, node.id |> Enum.at(0))
-        |> Map.put(:targets, get_targets_for_node(node))
+        |> Map.put(:id, (node.id |> Enum.at(0)) <> "_#{gid}")
+        |> Map.put(:targets, get_targets_for_node(node, gid))
         |> Map.put(:input_sources, %{})
         |> Map.put(:input_history, %{})
         |> Map.put(:output_history, [])
         |> Map.put(:last_input, nil)
         |> Map.put(:module_name, module)
+        |> Map.put(:graph_id, gid)
     end
 
     # XXX: Okay, I know this has bad complexity, I don't care, I don't work for you.
@@ -60,17 +67,23 @@ defmodule Helix.Graph do
     # Sprinkle env
     istates = Enum.map(istates, fn state -> Map.merge(state, env) end)
 
+    name_atom = String.to_atom("GraphSupervisor.#{gid}")
+    {:ok, supervisor_pid} = DynamicSupervisor.start_link(GraphSupervisor, :no_args, name: name_atom)
     for state <- istates do
       try do
         # XXX https://thoughtbot.com/blog/how-to-start-processes-with-dynamic-names-in-elixir
-        {:ok, pid} = GenServer.start_link(state.module_name, state)
-        :ets.insert(:pids, {state.id, pid})
+        #{:ok, pid} = GenServer.start_link(state.module_name, state)
+        {:ok, pid} = GraphSupervisor.start_node(name_atom, state.module_name, state)
+        IO.inspect("pidin")
+        IO.inspect("#{state.id}_#{state.graph_id}")
+        :ets.insert(:pids, {"#{state.id}", pid})
       catch
         x, y ->
           IO.inspect(x)
           IO.inspect(y)
       end
     end
+    supervisor_pid
   end
 
   def get_module_for_name(name) do
@@ -78,9 +91,9 @@ defmodule Helix.Graph do
     String.to_existing_atom(total_module_name)
   end
 
-  def get_targets_for_node(node) do
+  def get_targets_for_node(node, gid) do
     Enum.map(node.attrs["edges_from"], fn (x) ->
-      Enum.at(x.to.id, 0)
+      Enum.at(x.to.id, 0) <> "_#{gid}"
     end)
   end
 

@@ -11,8 +11,9 @@ defmodule Helix.Modules.Module do
       # Client API
       ##
       @spec start_link(any) :: :ignore | {:error, any} | {:ok, pid}
-      def start_link(_) do
-        GenServer.start_link(__MODULE__, %{})
+      def start_link(link_data) do
+        # XXX If I'm going to make these more universal, probably change __MODULE__ to add link data here.
+        GenServer.start_link(__MODULE__, link_data)
       end
 
       ##
@@ -56,7 +57,7 @@ defmodule Helix.Modules.Module do
 
       def ui_event(state, type \\ :flash, data \\ nil) do
         AistudioWeb.Endpoint.broadcast(
-          "LiveModule",
+          "LiveModule_#{state.graph_id}",
           "ui_event",
           %{
             type: type,
@@ -71,6 +72,7 @@ defmodule Helix.Modules.Module do
       # Utilities
       ##
       def get_pid_for_name(name) do
+        IO.inspect("Looking up: " <> name)
         pid = :ets.lookup(:pids, name) |> Enum.at(0) |> elem(1)
         pid
       end
