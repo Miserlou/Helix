@@ -50,6 +50,24 @@ alias Helix.Modules.StartModule
           "Input"
         ]
       },
+      "PromptModule": %{
+        "display_name": "Prompt",
+        "category": "Text",
+        "module": "Helix.Modules.PromptModule",
+        "options": [
+          %{
+            "name": "prompt",
+            "type": "TextAreaOption",
+            "default": "{INPUT}"
+          }
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
       "POSTModule": %{
         "display_name": "POST",
         "category": "Web",
@@ -87,6 +105,13 @@ alias Helix.Modules.StartModule
         "display_name": "Start",
         "category": "Control",
         "module": "Helix.Modules.StartModule",
+        "options": [
+          %{
+            "name": "delay",
+            "type": "IntegerOption",
+            "default": 1000
+          }
+        ],
         "outputs": [
           "Output"
         ]
@@ -115,16 +140,29 @@ alias Helix.Modules.StartModule
         "module": "Helix.Modules.GPTModule",
         "options": [
           %{
-            "name": "prompt",
-            "type": "InputOption",
-            "default": ""
-          },
-          %{
             "name": "model",
             "type": "SelectOption",
             "default": "text-davinci-003",
             "items": ["text-davinci-003", "text-ada-001"]
-          }
+          },
+          %{
+            "name": "max_tokens",
+            "type": "IntegerOption",
+            "default": "1024",
+          },
+          %{
+            "name": "temperature",
+            "type": "SliderOption",
+            "min": "0",
+            "min": "1.0",
+            "default": "0.9"
+          },
+          %{
+            "name": "top_p",
+            "type": "SliderOption",
+            "min": "0",
+            "min": "1.0"
+          },
         ],
         "inputs": [
           "Input"
@@ -138,11 +176,6 @@ alias Helix.Modules.StartModule
         "category": "OpenAI",
         "module": "Helix.Modules.OAIImageModule",
         "options": [
-          %{
-            "name": "prompt",
-            "type": "InputOption",
-            "default": ""
-          },
           %{
             "name": "size_x",
             "type": "IntegerOption",

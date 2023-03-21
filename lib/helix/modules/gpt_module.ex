@@ -5,17 +5,15 @@ defmodule Helix.Modules.GPTModule do
   def handle_cast({:convey, event}, state) do
     ui_event(state)
     state = update_input_history(state, event)
-    prompt = update_prompt(state)
+    prompt = event.value
     :timer.sleep(String.to_integer(Map.get(state, :delay, "0")))
-
-    IO.inspect("Execing CGPT")
 
     case OpenAI.completions(
       Map.get(state, :model, "text-ada-001"), #"text-davinci-003"),
       prompt: prompt,
       max_tokens: get_state(state, :max_tokens, "1024"),
-      # temperature: get_state(state, :temperature, "0.1"),
-      # top_p: get_state(state, :top_p, "1"),
+      temperature: get_state(state, :temperature, "0.1"),
+      top_p: get_state(state, :top_p, "1"),
       # frequency_penalty: get_state(state, :frequency_penalty, "0"),
       # presence_penalty: get_state(state, :presence_penalty, "0"),
       stop: get_state(state, :stop, "")
