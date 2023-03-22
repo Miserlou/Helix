@@ -9,7 +9,7 @@ defmodule Helix.Modules.StartModule do
 
   def handle_info(:start, state) do
     ui_event(state)
-    convey(state.message, state)
+    convey("Start #{:os.system_time(:millisecond)}" , state)
     {:noreply, state}
   end
 

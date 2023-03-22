@@ -74,8 +74,6 @@ defmodule Helix.Graph do
         # XXX https://thoughtbot.com/blog/how-to-start-processes-with-dynamic-names-in-elixir
         #{:ok, pid} = GenServer.start_link(state.module_name, state)
         {:ok, pid} = GraphSupervisor.start_node(name_atom, state.module_name, state)
-        IO.inspect("pidin")
-        IO.inspect("#{state.id}_#{state.graph_id}")
         :ets.insert(:pids, {"#{state.id}", pid})
       catch
         x, y ->
@@ -97,6 +95,7 @@ defmodule Helix.Graph do
     end)
   end
 
+  @spec list_local_graphs :: [binary]
   def list_local_graphs() do
     path = :code.priv_dir(:helix) |> Path.join("graphs") |> Path.join("*")
     Path.wildcard(path)

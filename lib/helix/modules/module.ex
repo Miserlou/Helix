@@ -39,6 +39,22 @@ defmodule Helix.Modules.Module do
         %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
       end
 
+      def convey_alt(value, state, alt_name) do
+        alt_targets = Map.get(state, alt_name) |> String.split(",", trim: true)
+        sent_events = Enum.reduce(alt_targets, [], fn target, event_acc ->
+          event = %{
+            type: :text,
+            value: value,
+            source_id: state.id,
+            message_id: UUID.uuid4(),
+            timestamp: :os.system_time(:milli_seconds)
+          }
+          GenServer.cast(get_pid_for_name(target <> "_" <> state.graph_id), {:convey, event})
+          event_acc ++ [event]
+        end )
+        %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
+      end
+
       def convey_img(value, state) do
 
         sent_events = Enum.reduce(state.targets, [], fn target, event_acc ->

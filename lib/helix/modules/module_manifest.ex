@@ -1,4 +1,5 @@
 defmodule Helix.Modules.ModuleManifest do
+alias Helix.Modules.IfContainsModule
 alias Helix.Modules.StartModule
 
   def get_manifest() do
@@ -117,7 +118,7 @@ alias Helix.Modules.StartModule
         ]
       },
       "HFInferenceModule": %{
-        "display_name": "HuggingFace Inference",
+        "display_name": "Text Classifier",
         "category": "Huggingface",
         "module": "Helix.Modules.HFInferenceModule",
         "options": [
@@ -143,7 +144,7 @@ alias Helix.Modules.StartModule
             "name": "model",
             "type": "SelectOption",
             "default": "text-davinci-003",
-            "items": ["text-davinci-003", "text-ada-001"]
+            "items": ["text-davinci-003", "text-davinci-002", "text-curie-001", "text-babbage-001", "text-ada-001"]
           },
           %{
             "name": "max_tokens",
@@ -172,7 +173,7 @@ alias Helix.Modules.StartModule
         ]
       },
       "OAIImageModule": %{
-        "display_name": "OpenAI Image Module",
+        "display_name": "Image Generation",
         "category": "OpenAI",
         "module": "Helix.Modules.OAIImageModule",
         "options": [
@@ -192,6 +193,24 @@ alias Helix.Modules.StartModule
         ],
         "outputs": [
           "Output"
+        ]
+      },
+      "IfContainsModule": %{
+        "display_name": "If Contains",
+        "category": "Logic",
+        "module": "Helix.Modules.IfContainsModule",
+        "options": [
+          %{
+            "name": "decider",
+            "type": "InputOption",
+            "default": "Yes"
+          }
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output", "Else"
         ]
       }
     }
