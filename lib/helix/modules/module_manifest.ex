@@ -212,6 +212,24 @@ alias Helix.Modules.StartModule
         "outputs": [
           "Output", "Else"
         ]
+      },
+      "JQModule": %{
+        "display_name": "JSON (jq)",
+        "category": "Text",
+        "module": "Helix.Modules.JQModule",
+        "options": [
+          %{
+            "name": "jq",
+            "type": "InputOption",
+            "default": ".key"
+          }
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
       }
     }
 
