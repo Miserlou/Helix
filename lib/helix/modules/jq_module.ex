@@ -4,6 +4,7 @@ defmodule Helix.Modules.JQModule do
 
   def handle_cast({:convey, event}, state) do
 
+    ui_event(state)
     jay = Map.get(state, :jq, "")
     case JQ.query(event.value, jay) do
       {:ok, res} ->

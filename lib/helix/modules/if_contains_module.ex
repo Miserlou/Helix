@@ -4,6 +4,7 @@ defmodule Helix.Modules.IfContainsModule do
   import Helix.Modules.GPTUtils
 
   def handle_cast({:convey, event}, state) do
+    ui_event(state)
 
     state = update_input_history(state, event)
     value = event.value

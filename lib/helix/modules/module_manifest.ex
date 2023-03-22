@@ -249,6 +249,57 @@ alias Helix.Modules.StartModule
           "Output"
         ]
       },
+      "CountToModule": %{
+        "display_name": "Count To",
+        "category": "Utility",
+        "module": "Helix.Modules.CountToModule",
+        "options": [
+          %{
+            "name": "initial",
+            "type": "IntegerOption",
+            "default": 0
+          },
+          %{
+            "name": "count_to",
+            "type": "IntegerOption",
+            "default": 9
+          },
+          %{
+            "name": "count_by",
+            "type": "IntegerOption",
+            "default": 1
+          },
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
+      "CounterModule": %{
+        "display_name": "Counter",
+        "category": "Utility",
+        "module": "Helix.Modules.Counter",
+        "options": [
+          %{
+            "name": "initial",
+            "type": "IntegerOption",
+            "default": 0
+          },
+          %{
+            "name": "count_by",
+            "type": "IntegerOption",
+            "default": 1
+          },
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
       "PassthroughModule": %{
         "display_name": "Passthrough",
         "category": "Utility",
