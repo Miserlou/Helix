@@ -71,6 +71,14 @@ defmodule Helix.Modules.Module do
         %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
       end
 
+      def broadcast_error(state, error) do
+        AistudioWeb.Endpoint.broadcast(
+          "LiveModule_#{state.graph_id}",
+          "convey",
+          create_error_event(error, state.id)
+        )
+      end
+
       def ui_event(state, type \\ :flash, data \\ nil) do
         AistudioWeb.Endpoint.broadcast(
           "LiveModule_#{state.graph_id}",
@@ -88,7 +96,6 @@ defmodule Helix.Modules.Module do
       # Utilities
       ##
       def get_pid_for_name(name) do
-        IO.inspect("Looking up: " <> name)
         pid = :ets.lookup(:pids, name) |> Enum.at(0) |> elem(1)
         pid
       end

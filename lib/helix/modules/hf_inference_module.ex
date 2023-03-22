@@ -27,18 +27,10 @@ defmodule Helix.Modules.HFInferenceModule do
         output_state = convey(body, state)
         {:noreply, output_state}
       {:ok, %HTTPoison.Response{body: body}} ->
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule",
-          "convey",
-          create_error_event(body, state.id)
-        )
+        broadcast_error(state, body)
         {:noreply, state}
       {:error, %HTTPoison.Error{} = error} ->
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule",
-          "convey",
-          create_error_event(error, state.id)
-        )
+        broadcast_error(state, error)
         {:noreply, state}
     end
 

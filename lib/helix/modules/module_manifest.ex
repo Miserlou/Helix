@@ -135,6 +135,24 @@ alias Helix.Modules.StartModule
           "Output"
         ]
       },
+      "HFImageModule": %{
+        "display_name": "GenerateImage",
+        "category": "Huggingface",
+        "module": "Helix.Modules.HFImageModule",
+        "options": [
+          %{
+            "name": "model",
+            "type": "InputOption",
+            "default": "CompVis/stable-diffusion-v1-4"
+          }
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
       "GPTModule": %{
         "display_name": "Simple GPT",
         "category": "OpenAI",
@@ -224,6 +242,17 @@ alias Helix.Modules.StartModule
             "default": ".key"
           }
         ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
+      "PassthroughModule": %{
+        "display_name": "Passthrough",
+        "category": "Utility",
+        "module": "Helix.Modules.PassthroughModule",
         "inputs": [
           "Input"
         ],
