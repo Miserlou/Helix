@@ -8,7 +8,12 @@ defmodule Helix.Modules.GPTModule do
     prompt = event.value
     :timer.sleep(String.to_integer(Map.get(state, :delay, "0")))
 
+    config = %{
+      api_key: Map.get(state, :OAI_API_KEY, "oai_REPLACE_ME")
+    }
+
     case OpenAI.completions(
+      config,
       Map.get(state, :model, "text-ada-001"), #"text-davinci-003"),
       prompt: prompt,
       max_tokens: get_state(state, :max_tokens, "1024"),

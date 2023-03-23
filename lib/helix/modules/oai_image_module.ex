@@ -10,7 +10,12 @@ defmodule Helix.Modules.OAIImageModule do
     size_x = Map.get(state, :size_x, "256")
     size_y = Map.get(state, :size_y, "256")
 
+    custom_config = %{
+      api_key: Map.get(state, :OAI_API_KEY, "oai_REPLACE_ME")
+    }
+
     case OpenAI.images_generations(
+      custom_config,
       [prompt: Map.get(event, :value, "..."), size: "#{size_x}x#{size_y}"],
       [recv_timeout: 10 * 60 * 1000]
     ) do
