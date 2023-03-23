@@ -310,6 +310,24 @@ alias Helix.Modules.StartModule
         "outputs": [
           "Output"
         ]
+      },
+      "RingBufferModule": %{
+        "display_name": "Ring Buffer",
+        "category": "Memory",
+        "module": "Helix.Modules.RingBufferModule",
+        "options": [
+          %{
+            "name": "size",
+            "type": "IntegerOption",
+            "default": 10
+          }
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
       }
     }
 

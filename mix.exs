@@ -41,15 +41,15 @@ defmodule Helix.MixProject do
     [
       # Phoenix
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:phoenix, "~> 1.6.2"},
+      {:phoenix, "~> 1.7"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.16.0"},
+      {:phoenix_live_view, "~> 0.18.0"},
       {:floki, ">= 0.30.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.5"},
+      # {:phoenix_live_dashboard, "~> 0.5"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},
@@ -58,18 +58,24 @@ defmodule Helix.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
 
+
+
       # Helix
-      {:openai, "~> 0.2.1"},
+      {:openai, path: "/Users/rjones/Sources/openai.ex"},
       #{:libgraph, "~> 0.7"},
       {:dotx, "~> 0.3.1"},
       {:solid, "~> 0.14"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:uuid, "~> 1.1.8" },
       {:colour_hash, "~> 1.0.3"},
-      {:bumblebee, "~> 0.1.2"},
-      {:exla, ">= 0.0.0"},
-      {:nx, "~> 0.4.1"},
-      {:axon, "~> 0.3.1"},
+      {:bumblebee, "~> 0.2"},
+      {:exla, "~> 0.5.2"},
+      {:nx, "~> 0.5.0"},
+      {:axon, "~> 0.5.0"},
+      {:temp, "~> 0.4"},
+      {:kino, "~> 0.9.0"},
+      {:image, "~> 0.27.0"},
+      {:ring_buffer, "~> 0.1.0"}
     ]
   end
 
