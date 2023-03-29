@@ -1,7 +1,7 @@
 defmodule Helix.MixProject do
   use Mix.Project
 
-  @version "0.0.1"
+  @version "0.1.0"
   @repo_url "https://github.com/Miserlou/Helix"
 
   def project do
@@ -58,8 +58,6 @@ defmodule Helix.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
 
-
-
       # Helix
       {:openai, path: "/Users/rjones/Sources/openai.ex"},
       #{:libgraph, "~> 0.7"},
@@ -68,13 +66,13 @@ defmodule Helix.MixProject do
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:uuid, "~> 1.1.8" },
       {:colour_hash, "~> 1.0.3"},
-      {:bumblebee, "~> 0.2"},
-      {:exla, "~> 0.5.2"},
-      {:nx, "~> 0.5.0"},
-      {:axon, "~> 0.5.0"},
-      {:temp, "~> 0.4"},
-      {:kino, "~> 0.9.0"},
-      {:image, "~> 0.27.0"},
+      #{:bumblebee, "~> 0.2"},
+      #{:exla, "~> 0.5.2"},
+      #{:nx, "~> 0.5.0"},
+      #{:axon, "~> 0.5.0"},
+      #{:temp, "~> 0.4"},
+      #{:kino, "~> 0.9.0"},
+      #{:image, "~> 0.27.0"},
       {:ring_buffer, "~> 0.1.0"}
     ]
   end
