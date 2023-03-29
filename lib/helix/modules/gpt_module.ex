@@ -28,17 +28,11 @@ defmodule Helix.Modules.GPTModule do
         output_state = convey(value, state)
         {:noreply, output_state}
       {:error, :timeout} ->
-        # XXX TODO: Handle properly
-        IO.inspect("XXX: Timeout error")
+        broadcast_error(state, Kernel.inspect("OpenAI API Timeout"))
         {:noreply, state}
       {:error, e} ->
         IO.inspect("Unexpcected error: " <> Kernel.inspect(e))
-        IO.inspect(create_error_event(e, state.id))
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule",
-          "convey",
-          create_error_event(e, state.id)
-        )
+        broadcast_error(state, Kernel.inspect(e))
         {:noreply, state}
     end
   end

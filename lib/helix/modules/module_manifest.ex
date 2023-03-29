@@ -15,6 +15,17 @@ alias Helix.Modules.StartModule
             "Output"
           ]
       },
+      "AwaitAndJoinModule": %{
+        "display_name": "Await and Join",
+        "category": "Control",
+        "module": "Helix.Modules.AwaitAndJoinModule",
+        "inputs": [
+            "Input"
+          ],
+        "outputs": [
+            "Output"
+          ]
+      },
       "ClockModule": %{
         "display_name": "Clock",
         "category": "Control",
@@ -77,7 +88,7 @@ alias Helix.Modules.StartModule
           %{
             "name": "url",
             "type": "InputOption",
-            "default": ""
+            "default": "https://webhook.site/"
           },
         ],
         "inputs": [
@@ -92,7 +103,7 @@ alias Helix.Modules.StartModule
           %{
             "name": "url",
             "type": "InputOption",
-            "default": ""
+            "default": "https://jsonplaceholder.typicode.com/todos/1"
           },
         ],
         "inputs": [
@@ -136,7 +147,7 @@ alias Helix.Modules.StartModule
         ]
       },
       "HFImageModule": %{
-        "display_name": "GenerateImage",
+        "display_name": "Generate Image",
         "category": "Huggingface",
         "module": "Helix.Modules.HFImageModule",
         "options": [

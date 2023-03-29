@@ -15,6 +15,10 @@
 
 ### About
 
+**NOTE!**
+This project is undergoing some major changes right now. Stay frosty.
+**NOTE!**
+
 **Helix** is a framework for building multi-model, feedback-looping AI systems. It's like a **modular synthesizer** for **AI**. 
 
 Read more about the concept [in this blog post](https://miserlou.github.io/Helix/misc/2022/12/27/introducing-helix.html). In this analogy, if `GPT` is a module making a single tone, `Helix` is a rack full of modules feeding back into each other making a beautiful cacaphony.
