@@ -4,12 +4,23 @@ defmodule Helix.Graph do
   require Solid
   alias Helix.GraphSupervisor
 
-  def load_graph(path) do
+  def load_graph(path, local \\ false) do
 
     dot_string = load_and_render_template(path)
+    dot_string = if local do
+      dot_string
+      |> String.replace("LiveInputModule", "ConsoleInputModule")
+      |> String.replace("LiveOutputModule", "ConsoleOutputModule")
+    else
+      dot_string
+    end
     {nodes, graph} = load_graph_from_dot_string(dot_string)
-    instantiate_nodes(nodes)
-    {nodes, graph}
+    dspid = instantiate_nodes(nodes)
+    if !local do
+      {nodes, graph}
+    else
+      {nodes, graph, dspid}
+    end
   end
 
   def load_and_render_template(path) do

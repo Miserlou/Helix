@@ -13,7 +13,6 @@ defmodule Helix.GraphSupervisor do
       id: "#{state.id}_#{state.graph_id}",
       start: {node_type, :start_link, [state]}
     }
-    IO.inspect(child_spec)
     DynamicSupervisor.start_child(id, child_spec)
   end
 end

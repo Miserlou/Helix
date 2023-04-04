@@ -29,11 +29,7 @@ defmodule Helix.Modules.OAIImageModule do
       {:error, e} ->
         IO.inspect("Unexpcected error: " <> Kernel.inspect(e))
         IO.inspect(create_error_event(e, state.id))
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule",
-          "convey",
-          create_error_event(e, state.id)
-        )
+        broadcast_error(state, Kernel.inspect(e))
         {:noreply, state}
     end
   end

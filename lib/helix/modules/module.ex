@@ -75,24 +75,33 @@ defmodule Helix.Modules.Module do
       end
 
       def broadcast_error(state, error) do
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule_#{state.graph_id}",
-          "convey",
-          create_error_event(error, state.id)
-        )
+        try do
+          AistudioWeb.Endpoint.broadcast(
+            "LiveModule_#{state.graph_id}",
+            "convey",
+            create_error_event(error, state.id)
+          )
+        catch
+          k, e ->
+            IO.inspect("Error.")
+        end
       end
 
       def ui_event(state, type \\ :flash, data \\ nil) do
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule_#{state.graph_id}",
-          "ui_event",
-          %{
-            type: type,
-            data: data,
-            node_id: state[:ui_node_id]
-          }
-        )
-
+        try do
+          AistudioWeb.Endpoint.broadcast(
+            "LiveModule_#{state.graph_id}",
+            "ui_event",
+            %{
+              type: type,
+              data: data,
+              node_id: state[:ui_node_id]
+            }
+          )
+        catch
+          k, e ->
+            false
+        end
       end
 
       ##

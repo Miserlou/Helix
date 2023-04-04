@@ -10,11 +10,7 @@ defmodule Helix.Modules.JQModule do
       {:ok, res} ->
         {:noreply, convey(res, state)}
       {:error, err} ->
-        AistudioWeb.Endpoint.broadcast(
-          "LiveModule_#{state.graph_id}",
-          "convey",
-          create_error_event(err, state.id)
-        )
+        broadcast_error(state, Kernel.inspect(err))
         {:noreply, state}
     end
   end
