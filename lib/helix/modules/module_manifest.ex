@@ -242,6 +242,43 @@ alias Helix.Modules.StartModule
           "Output", "Else"
         ]
       },
+      "SwitchCaseModule": %{
+        "display_name": "Switch Case",
+        "category": "Logic",
+        "module": "Helix.Modules.SwitchCaseModule",
+        "options": [
+          %{
+            "name": "case_one",
+            "type": "InputOption",
+            "default": "Case 1"
+          },
+          %{
+            "name": "case_two",
+            "type": "InputOption",
+            "default": "Case 2"
+          },
+          %{
+            "name": "case_three",
+            "type": "InputOption",
+            "default": "Case 3"
+          },
+          %{
+            "name": "case_four",
+            "type": "InputOption",
+            "default": "Case 4"
+          }
+        ],
+        "inputs": [
+          "Input",
+        ],
+        "outputs": [
+          "Output",
+          "Output2",
+          "Output3",
+          "Output4",
+          "OutputElse"
+        ]
+      },
       "JQModule": %{
         "display_name": "JSON (jq)",
         "category": "Text",

@@ -49,7 +49,10 @@ defmodule Helix.Modules.Module do
             message_id: UUID.uuid4(),
             timestamp: :os.system_time(:milli_seconds)
           }
-          GenServer.cast(get_pid_for_name(target <> "_" <> state.graph_id), {:convey, event})
+          targetpid = get_pid_for_name(target <> "_" <> state.graph_id)
+          if targetpid != nil do
+            GenServer.cast(get_pid_for_name(target <> "_" <> state.graph_id), {:convey, event})
+          end
           event_acc ++ [event]
         end )
         %{state | output_history: state.output_history ++ [sent_events], input_sources: Map.new(state.input_sources, fn {k, _v} -> {k, nil} end)}
@@ -96,8 +99,13 @@ defmodule Helix.Modules.Module do
       # Utilities
       ##
       def get_pid_for_name(name) do
-        pid = :ets.lookup(:pids, name) |> Enum.at(0) |> elem(1)
-        pid
+        try do
+          pid = :ets.lookup(:pids, name) |> Enum.at(0) |> elem(1)
+          pid
+        catch
+          k, e ->
+            nil
+        end
       end
 
       def update_input_history(state, event) do
