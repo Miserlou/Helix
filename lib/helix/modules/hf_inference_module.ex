@@ -13,7 +13,10 @@ defmodule Helix.Modules.HFInferenceModule do
     request = %HTTPoison.Request{
       method: :post,
       url: url,
-      options: [],
+      options: [
+        recv_timeout: 60_000,
+        timeout: 60_000,
+      ],
       headers: [
         {~s|Authorization|, ~s|Bearer #{token}|},
         {~s|Content-Type|, ~s|application/json|},

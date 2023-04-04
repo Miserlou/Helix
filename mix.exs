@@ -59,7 +59,8 @@ defmodule Helix.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       # Helix
-      {:openai, path: "/Users/rjones/Sources/openai.ex"},
+      #{:openai, path: "/Users/rjones/Sources/openai.ex"},
+      {:openaimt,  "~> 0.3.1"},
       #{:libgraph, "~> 0.7"},
       {:dotx, "~> 0.3.1"},
       {:solid, "~> 0.14"},

@@ -15,13 +15,16 @@ defmodule Helix.Modules.HFImageModule do
       request = %HTTPoison.Request{
         method: :post,
         url: url,
-        options: [:recv_timout, 30000],
+        options: [
+          recv_timeout: 60_000,
+          timeout: 60_000,
+        ],
         headers: [
           {~s|Authorization|, ~s|Bearer #{token}|},
           {~s|Content-Type|, ~s|application/json|},
         ],
         params: [],
-        body: ~s|{"inputs": "#{event.value}"}|
+        body: ~s|{"inputs": "#{event.value}", "wait_for_model": true}|
       }
 
       case HTTPoison.request(request) do
