@@ -1,7 +1,7 @@
 defmodule Helix.MixProject do
   use Mix.Project
 
-  @version "0.1.0"
+  @version "0.1.1"
   @repo_url "https://github.com/Miserlou/Helix"
 
   def project do
@@ -16,7 +16,8 @@ defmodule Helix.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      package: package()
+      package: package(),
+      escript: [main_module: Commandline.CLI]
     ]
   end
 
