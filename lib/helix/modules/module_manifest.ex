@@ -184,15 +184,45 @@ alias Helix.Modules.StartModule
             "name": "temperature",
             "type": "SliderOption",
             "min": "0",
-            "min": "1.0",
+            "max": "1.0",
             "default": "0.9"
+          }
+        ],
+        "inputs": [
+          "Input"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
+      "OAIChatGPTModule": %{
+        "display_name": "Chat GPT",
+        "category": "OpenAI",
+        "module": "Helix.Modules.OAIChatGPTModule",
+        "options": [
+          %{
+            "name": "system_message",
+            "type": "TextAreaOption",
+            "default": "Your are a friendly assistant. Your job is to be as helpful as possible and perform any tasks assigned to you."
           },
           %{
-            "name": "top_p",
+            "name": "model",
+            "type": "SelectOption",
+            "default": "gpt-3.5-turbo",
+            "items": ["tgpt-3.5-turbo"]
+          },
+          %{
+            "name": "max_tokens",
+            "type": "IntegerOption",
+            "default": "1024",
+          },
+          %{
+            "name": "temperature",
             "type": "SliderOption",
             "min": "0",
-            "min": "1.0"
-          },
+            "max": "1.0",
+            "default": "0.9"
+          }
         ],
         "inputs": [
           "Input"

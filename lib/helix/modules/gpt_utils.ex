@@ -4,6 +4,10 @@ defmodule Helix.Modules.GPTUtils do
     res |> Map.get(:choices) |> Enum.at(0) |> Map.get("text") |> String.trim
   end
 
+  def extract_chat_result(res) do
+    res |> Map.get(:choices) |> Enum.at(0) |> Map.get("message") |> Map.get("content") |> String.trim
+  end
+
   def find_substitutions(text) do
     # I am bad at Regex. This is from here: https://stackoverflow.com/a/44257681
     Regex.scan(~r/[^{\}]+(?=})/, text)
