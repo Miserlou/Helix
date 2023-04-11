@@ -6,8 +6,6 @@ defmodule Helix.Modules.SwitchCaseModule do
   def handle_cast({:convey, event}, state) do
     ui_event(state)
 
-    require IEx; IEx.pry()
-
     state = update_input_history(state, event)
     value = event.value
 

@@ -406,6 +406,18 @@ alias Helix.Modules.StartModule
         "outputs": [
           "Output"
         ]
+      },
+      "SampleAndHoldModule": %{
+        "display_name": "Sample and Hold",
+        "category": "Memory",
+        "module": "Helix.Modules.SampleAndHoldModule",
+        "inputs": [
+          "Input",
+          "Trigger",
+        ],
+        "outputs": [
+          "Output"
+        ]
       }
     }
 

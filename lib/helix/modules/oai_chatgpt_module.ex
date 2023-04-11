@@ -12,9 +12,6 @@ defmodule Helix.Modules.OAIChatGPTModule do
       api_key: Map.get(state, :OAI_API_KEY, "oai_REPLACE_ME")
     }
 
-    IO.inspect("messages")
-    IO.inspect(generate_messages(state, event))
-
     case OpenAI.chat_completion(
       custom_config,
       model: Map.get(state, :model, "gpt-3.5-turbo"),
