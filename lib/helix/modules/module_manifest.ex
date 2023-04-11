@@ -418,7 +418,27 @@ alias Helix.Modules.StartModule
         "outputs": [
           "Output"
         ]
-      }
+      },
+      "KeyValueStoreModule": %{
+        "display_name": "Key Value Store",
+        "category": "Memory",
+        "module": "Helix.Modules.KeyValueStoreModule",
+        "options": [
+          %{
+            "name": "JSON",
+            "type": "CheckboxOption",
+            "default": true
+          }
+        ],
+        "inputs": [
+          "Input",
+          "Get",
+          "GetAll",
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
     }
 
   end
