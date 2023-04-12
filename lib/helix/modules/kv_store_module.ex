@@ -29,10 +29,14 @@ defmodule Helix.Modules.KeyValueStoreModule do
 
       true ->
         kv_u = Enum.reduce(String.split(event.value, "\n"), kv, fn line, acc ->
-          split = String.split(line, ": ")
-          key = Enum.at(split, 0)
-          value = Enum.at(split, 1)
-          Map.put(acc, key, value)
+          if String.contains?(line, ": ") do
+            split = String.split(line, ": ")
+            key = Enum.at(split, 0)
+            value = Enum.at(split, 1)
+            Map.put(acc, key, value)
+          else
+            acc
+          end
         end)
         {:noreply, Map.put(state, :kv, kv_u)}
 

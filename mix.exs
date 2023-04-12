@@ -1,7 +1,7 @@
 defmodule Helix.MixProject do
   use Mix.Project
 
-  @version "0.1.3"
+  @version "0.1.4"
   @repo_url "https://github.com/Miserlou/Helix"
 
   def project do
@@ -61,7 +61,7 @@ defmodule Helix.MixProject do
 
       # Helix
       #{:openaimt, path: "/Users/rjones/Sources/openai.ex"},
-       {:openaimt,  "~> 0.3.2"},
+      {:openaimt,  "~> 0.3.3"},
       #{:libgraph, "~> 0.7"},
       {:dotx, "~> 0.3.1"},
       {:solid, "~> 0.14"},
