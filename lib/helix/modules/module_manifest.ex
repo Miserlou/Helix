@@ -15,17 +15,6 @@ alias Helix.Modules.StartModule
             "Output"
           ]
       },
-      "AwaitAndJoinModule": %{
-        "display_name": "Await and Join",
-        "category": "Control",
-        "module": "Helix.Modules.AwaitAndJoinModule",
-        "inputs": [
-            "Input"
-          ],
-        "outputs": [
-            "Output"
-          ]
-      },
       "ClockModule": %{
         "display_name": "Clock",
         "category": "Control",
