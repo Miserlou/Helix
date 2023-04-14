@@ -35,6 +35,24 @@ alias Helix.Modules.StartModule
           "Output"
         ]
       },
+      "DelayModule": %{
+        "display_name": "Delay",
+        "category": "Control",
+        "module": "Helix.Modules.DelayModule",
+        "options": [
+          %{
+            "name": "amount",
+            "type": "IntegerOption",
+            "default": 5000
+          },
+        ],
+        "inputs": [
+            "Input"
+          ],
+        "outputs": [
+            "Output"
+          ]
+      },
       "LiveInputModule": %{
         "display_name": "Console Input",
         "category": "I/O",
@@ -426,6 +444,66 @@ alias Helix.Modules.StartModule
         ],
         "outputs": [
           "Output"
+        ]
+      },
+      "VariableBooleanModule": %{
+        "display_name": "Boolean",
+        "category": "Variables",
+        "module": "Helix.Modules.VariableBooleanModule",
+        "options": [
+          %{
+            "name": "default",
+            "type": "SelectOption",
+            "default": "true",
+            "items": ["true", "false"]
+          },
+        ],
+        "inputs": [
+          "Input",
+          "Toggle"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
+      "VariableStringModule": %{
+        "display_name": "String",
+        "category": "Variables",
+        "module": "Helix.Modules.VariableStringModule",
+        "options": [
+          %{
+            "name": "default",
+            "type": "InputOption",
+            "default": "default"
+          },
+        ],
+        "inputs": [
+          "Input",
+          "Set"
+        ],
+        "outputs": [
+          "Output"
+        ]
+      },
+      "VariableBooleanRouterModule": %{
+        "display_name": "Boolean Router",
+        "category": "Variables",
+        "module": "Helix.Modules.VariableBooleanRouterModule",
+        "options": [
+          %{
+            "name": "default",
+            "type": "SelectOption",
+            "default": "true",
+            "items": ["true", "false"]
+          },
+        ],
+        "inputs": [
+          "Input",
+          "Toggle"
+        ],
+        "outputs": [
+          "Output",
+          "False"
         ]
       },
     }

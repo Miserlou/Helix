@@ -1,7 +1,7 @@
 defmodule Helix.MixProject do
   use Mix.Project
 
-  @version "0.1.4"
+  @version "0.1.5"
   @repo_url "https://github.com/Miserlou/Helix"
 
   def project do
