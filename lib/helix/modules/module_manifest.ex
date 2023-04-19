@@ -55,7 +55,7 @@ alias Helix.Modules.StartModule
       },
       "LiveInputModule": %{
         "display_name": "Console Input",
-        "category": "I/O",
+        "category": "Input / Output",
         "module": "Helix.Modules.LiveInputModule",
         "outputs": [
           "Output"
@@ -63,7 +63,7 @@ alias Helix.Modules.StartModule
       },
       "LiveOutputModule": %{
         "display_name": "Console Output",
-        "category": "I/O",
+        "category": "Input / Output",
         "module": "Helix.Modules.LiveOutputModule",
         "inputs": [
           "Input"
@@ -506,6 +506,28 @@ alias Helix.Modules.StartModule
           "False"
         ]
       },
+      "BrowserModule": %{
+        "display_name": "Web Browser",
+        "category": "Web",
+        "module": "Helix.Modules.BrowserModule",
+        "inputs": [
+          "Input",
+        ],
+        "outputs": [
+          "Output",
+        ]
+      },
+      "ReadabilityModule": %{
+        "display_name": "Readability",
+        "category": "Web",
+        "module": "Helix.Modules.ReadabilityModule",
+        "inputs": [
+          "Input",
+        ],
+        "outputs": [
+          "Output",
+        ]
+      }
     }
 
   end

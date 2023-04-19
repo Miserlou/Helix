@@ -49,7 +49,7 @@ defmodule Helix.MixProject do
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.18.0"},
-      {:floki, ">= 0.30.0", only: :test},
+      {:floki, ">= 0.30.0"},
       # {:phoenix_live_dashboard, "~> 0.5"},
       {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:swoosh, "~> 1.3"},
@@ -58,6 +58,9 @@ defmodule Helix.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      {:playwright, path: "/Users/rjones/Sources/playwright-elixir"},
+      {:readability, path: "/Users/rjones/Sources/readability"},
+      #{:readability, "~> 0.10"},
 
       # Helix
       #{:openaimt, path: "/Users/rjones/Sources/openai.ex"},
