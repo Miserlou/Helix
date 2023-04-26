@@ -31,7 +31,7 @@ defmodule Helix.Modules.GPTModule do
         broadcast_error(state, Kernel.inspect("OpenAI API Timeout"))
         {:noreply, state}
       {:error, e} ->
-        IO.inspect("Unexpcected error: " <> Kernel.inspect(e))
+        IO.inspect("Unexpected error: " <> Kernel.inspect(e))
         broadcast_error(state, Kernel.inspect(e))
         {:noreply, state}
     end

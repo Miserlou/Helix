@@ -61,3 +61,9 @@ config :tailwind,
     ),
     cd: Path.expand("../assets", __DIR__)
   ]
+
+config :readability,
+  httpoison_options: [
+    recv_timeout: 15000,
+    timeout: 15000
+  ]

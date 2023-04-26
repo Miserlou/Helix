@@ -216,7 +216,7 @@ alias Helix.Modules.StartModule
             "name": "model",
             "type": "SelectOption",
             "default": "gpt-3.5-turbo",
-            "items": ["tgpt-3.5-turbo"]
+            "items": ["gpt-3.5-turbo"]
           },
           %{
             "name": "max_tokens",
@@ -506,6 +506,27 @@ alias Helix.Modules.StartModule
           "False"
         ]
       },
+      "VariableListModule": %{
+        "display_name": "List",
+        "category": "Variables",
+        "module": "Helix.Modules.VariableListModule",
+        "options": [
+          %{
+            "name": "default",
+            "type": "InputOption",
+            "default": "",
+          },
+        ],
+        "inputs": [
+          "Input",
+          "Append",
+          "Iterate",
+          "GetAll",
+        ],
+        "outputs": [
+          "Output",
+        ]
+      },
       "BrowserModule": %{
         "display_name": "Web Browser",
         "category": "Web",
@@ -517,12 +538,49 @@ alias Helix.Modules.StartModule
           "Output",
         ]
       },
-      "ReadabilityModule": %{
-        "display_name": "Readability",
-        "category": "Web",
-        "module": "Helix.Modules.ReadabilityModule",
+      "AgentBrowserModule": %{
+        "display_name": "Web Scraper Agent",
+        "category": "Agents",
+        "module": "Helix.Modules.AgentBrowserModule",
+        "options": [
+          %{
+            "name": "goal",
+            "type": "InputOption",
+            "default": "top technology venture capitalists in Norway"
+          },
+          %{
+            "name": "extract",
+            "type": "InputOption",
+            "default": "contact information"
+          },
+          %{
+            "name": "depth",
+            "type": "IntegerOption",
+            "default": 4
+          }
+        ],
         "inputs": [
           "Input",
+        ],
+        "outputs": [
+          "Output",
+          "Finished"
+        ]
+      },
+      "ReadabilityModule": %{
+        "display_name": "Get Article Text",
+        "category": "Web",
+        "module": "Helix.Modules.ReadabilityModule",
+        "options": [
+          %{
+            "name": "url",
+            "type": "InputOption",
+            "default": "https://example.com"
+          },
+        ],
+        "inputs": [
+          "Input",
+          "URL",
         ],
         "outputs": [
           "Output",
